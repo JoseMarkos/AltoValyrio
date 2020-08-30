@@ -7,14 +7,14 @@ namespace Alto_Valyrio.src.Inventory.Auth.Application
 {
     public sealed class AuthenticateUserCommandHandler
     {
-        private UserAuthenticator Authenticator;
+        private readonly UserAuthenticator Authenticator;
 
         public AuthenticateUserCommandHandler(UserAuthenticator authenticator)
         {
             Authenticator = authenticator;
         }
 
-        public void Hola(AuthenticateUserCommand command)
+        public void Trigger(AuthenticateUserCommand command)
         {
             var username = new AuthUsername(command.GetUsername());
             var password = new AuthPassword(command.GetPassword());

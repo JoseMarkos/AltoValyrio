@@ -26,7 +26,6 @@ namespace Alto_Valyrio.src.Inventory.Auth.Infrastructure.Persistance
             }
             catch (Exception)
             {
-
                 return null;
             }
         }
