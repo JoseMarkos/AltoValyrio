@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Alto_Valyrio.src.Inventory.Customers.Infrastructure.Persistance
 {
-    class CustomerModel
+    class UserModel
     {
     }
 }

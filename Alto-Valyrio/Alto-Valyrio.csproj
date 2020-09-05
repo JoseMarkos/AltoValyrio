@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="src\Inventory\Users\Infrastructure\Persistance\CustomerContext.cs" />
+    <Compile Remove="src\Inventory\Users\Infrastructure\Persistance\UserContext.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="src\Inventory\Users\Infrastructure\Persistance\CustomerContext.cs" />
+    <None Include="src\Inventory\Users\Infrastructure\Persistance\UserContext.cs" />
   </ItemGroup>
 
   <ItemGroup>
