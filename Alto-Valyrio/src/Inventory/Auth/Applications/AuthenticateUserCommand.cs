@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Alto_Valyrio.src.Inventory.Auth.Application
+namespace Alto_Valyrio.src.Inventory.Auth.Applications
 {
     public sealed class AuthenticateUserCommand
     {
 
-        private string Username;
-        private string Password;
+        private readonly string Username;
+        private readonly string Password;
 
         public AuthenticateUserCommand(string username, string password)
         {

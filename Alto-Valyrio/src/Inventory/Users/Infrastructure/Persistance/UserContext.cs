@@ -6,7 +6,7 @@ namespace Alto_Valyrio.src.Inventory.Customers.Infrastructure.Persistance
 {
     public sealed class CustomerContext : DBContext
     {
-        public DbSet<CustomerModel> Customers { get; set; }
+        public DbSet<UserModel> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

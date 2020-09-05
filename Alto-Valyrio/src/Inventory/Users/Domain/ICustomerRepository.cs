@@ -7,8 +7,8 @@ namespace Alto_Valyrio.src.Inventory.Customers.Domain
 {
     public interface ICustomerRepository
     {
-        void Save(Customer customer);
-        ICollection<Customer> SearchAll();
-        ICollection<Customer> Matching(string criteria);
+        void Save(User customer);
+        ICollection<User> SearchAll();
+        ICollection<User> Matching(string criteria);
     }
 }

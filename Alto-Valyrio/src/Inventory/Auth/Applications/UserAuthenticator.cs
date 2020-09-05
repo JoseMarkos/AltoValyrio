@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Alto_Valyrio.src.Inventory.Auth.Application
+namespace Alto_Valyrio.src.Inventory.Auth.Applications
 {
     public sealed class UserAuthenticator
     {

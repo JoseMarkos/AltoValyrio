@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Alto_Valyrio.src.Inventory.Customers.Domain
 {
-    public sealed class Customer
+    public sealed class User
     {
         public int Id { get; set; }
         public string PrimerNombre { get; set; }
@@ -19,8 +19,15 @@ namespace Alto_Valyrio.src.Inventory.Customers.Domain
 #nullable enable
         public int? Phone { get; set; }
 #nullable disable
-        public int AuthUserId { get; set; }
         public AuthUsername Username { get; set; }
         public AuthPassword Password { get; set; }
+        
+        public Roles Role { get; set; }
+    }
+
+    public enum Roles
+    {
+        Administrator,
+        Customer
     }
 }

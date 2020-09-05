@@ -1,4 +1,4 @@
-﻿using Alto_Valyrio.src.Inventory.Auth.Application;
+﻿using Alto_Valyrio.src.Inventory.Auth.Applications;
 using Alto_Valyrio.src.Inventory.Auth.Domain;
 using Alto_Valyrio.src.Inventory.Auth.Infrastructure.Persistance;
 using Alto_Valyrio.src.Inventory.Customers.Domain;
@@ -46,7 +46,7 @@ namespace XUnitTestAltoValyrio.src.Inventory.Auth.Infrastructure
         }
 
         [Fact]
-        public void RegistrationPass()
+            public void RegistrationPass()
         {
             var username = new AuthUsername("Marcos");
             AuthPassword password = new AuthPassword("hola");
@@ -60,7 +60,7 @@ namespace XUnitTestAltoValyrio.src.Inventory.Auth.Infrastructure
         [Fact]
         public void FindPropertie()
         {
-            var auth = new Customer
+            var auth = new User
             {
                 Username = new AuthUsername("Jose"),
                 PrimerApellido = "Culajay"
@@ -83,14 +83,13 @@ namespace XUnitTestAltoValyrio.src.Inventory.Auth.Infrastructure
         [Fact]
         public void SetPropertie()
         {
-            var auth = new Customer
+            var auth = new User
             {
                 Username = new AuthUsername("Jose"),
                 PrimerApellido = "Culajay"
             };
 
             var properties = auth.GetType().GetProperties();
-            string hola = String.Empty;
 
             foreach (var item in properties)
             {

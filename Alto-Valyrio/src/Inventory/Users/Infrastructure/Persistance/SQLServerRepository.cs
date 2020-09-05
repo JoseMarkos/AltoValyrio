@@ -7,17 +7,17 @@ namespace Alto_Valyrio.src.Inventory.Customers.Infrastructure.Persistance
 {
     public sealed class SQLServerRepository : ICustomerRepository
     {
-        public ICollection<Customer> Matching(string criteria)
+        public ICollection<User> Matching(string criteria)
         {
             throw new NotImplementedException();
         }
 
-        public void Save(Customer customer)
+        public void Save(User customer)
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<Customer> SearchAll()
+        public ICollection<User> SearchAll()
         {
             throw new NotImplementedException();
         }

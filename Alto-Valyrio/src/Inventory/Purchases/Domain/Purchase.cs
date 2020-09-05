@@ -12,7 +12,7 @@ namespace Alto_Valyrio.src.Inventory.Purchases.Domain
         public DateTime PurchasePlaced { get; set; }
         public DateTime? PurchaseFulfilled { get; set; }
         public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
+        public User Customer { get; set; }
         public string State { get; set; }
         public ICollection<ProductPurchase> ProductPurchases { get; set; }
     }
