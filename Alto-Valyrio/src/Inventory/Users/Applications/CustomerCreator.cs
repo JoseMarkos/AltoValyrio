@@ -1,4 +1,4 @@
-﻿using Alto_Valyrio.src.Inventory.Customers.Domain;
+﻿using Alto_Valyrio.src.Inventory.Users.Domain;
 using Alto_Valyrio.src.Inventory.Purchases.Domain;
 using System.Collections.Generic;
 

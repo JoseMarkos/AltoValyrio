@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Alto_Valyrio.src.Inventory.Customers.Domain
+namespace Alto_Valyrio.src.Inventory.Users.Domain
 {
     public interface ICustomerRepository
     {

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Alto_Valyrio.src.Inventory.Customers.Domain
+namespace Alto_Valyrio.src.Inventory.Users.Domain
 {
     public sealed class User
     {

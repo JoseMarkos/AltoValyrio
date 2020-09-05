@@ -1,9 +1,9 @@
-﻿using Alto_Valyrio.src.Inventory.Customers.Domain;
+﻿using Alto_Valyrio.src.Inventory.Users.Domain;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Alto_Valyrio.src.Inventory.Customers.Infrastructure.Persistance
+namespace Alto_Valyrio.src.Inventory.Users.Infrastructure.Persistance
 {
     public sealed class SQLServerRepository : ICustomerRepository
     {

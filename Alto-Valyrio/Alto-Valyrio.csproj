@@ -8,15 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="src\Inventory\Users\Infrastructure\Persistance\UserContext.cs" />
+    <Compile Remove="Migrations\20200905051415_adding-users-and-roles.cs" />
+    <Compile Remove="Migrations\20200905051415_adding-users-and-roles.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="apps\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="src\Inventory\Users\Infrastructure\Persistance\UserContext.cs" />
+    <Folder Include="src\Shared\Infrastructure\Persistance\" />
   </ItemGroup>
 
   <ItemGroup>

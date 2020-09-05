@@ -1,7 +1,7 @@
 ﻿using Alto_Valyrio.src.Inventory.Auth.Applications;
 using Alto_Valyrio.src.Inventory.Auth.Domain;
 using Alto_Valyrio.src.Inventory.Auth.Infrastructure.Persistance;
-using Alto_Valyrio.src.Inventory.Customers.Domain;
+using Alto_Valyrio.src.Inventory.Users.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
