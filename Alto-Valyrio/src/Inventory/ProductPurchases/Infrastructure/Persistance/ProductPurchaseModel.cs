@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Alto_Valyrio.src.Inventory.ProductPurchases.Domain
+namespace Alto_Valyrio.src.Inventory.ProductPurchases.Infrastructure.Persistance
 {
-    public class ProductPurchase
+    public class ProductPurchaseModel
     {
         public int Id { get; set; }
         public int IdProduct { get; set; }
