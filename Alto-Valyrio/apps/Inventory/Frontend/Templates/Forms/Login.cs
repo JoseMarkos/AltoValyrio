@@ -1,4 +1,5 @@
-﻿using Alto_Valyrio.src.Inventory.Auth.Applications;
+﻿using Alto_Valyrio.apps.Inventory.Backend;
+using Alto_Valyrio.src.Inventory.Auth.Applications;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,6 +27,9 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms
             {
                 Command = new AuthenticateUserCommand(txtUsername.Text, txtPassword.Text);
                 Handler.Trigger(Command);
+
+                var dictionary = Routes.GetRoutes();
+                var controller = (IController)dictionary["CreateUser"];
             }
             catch (Exception AuthExeption)
             {

@@ -9,14 +9,13 @@ namespace Alto_Valyrio.src.Inventory.Users.Domain
     public sealed class User
     {
         public int Id { get; set; }
-        public string FirstName { get; set; }
 #nullable enable
+
+        public string? FirstName { get; set; }
         public string? SecondName { get; set; }
         public string? LastName { get; set; }
         public string? SecondLastName { get; set; }
-#nullable disable
-        public ICollection<Purchase> Purchases { get; set; }
-#nullable enable
+        public ICollection<Purchase>? Purchases { get; set; }
         public int? Phone { get; set; }
 #nullable disable
         public string Username { get; set; }

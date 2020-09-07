@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Alto_Valyrio.Migrations
 {
     [DbContext(typeof(AltoTestContext))]
-    [Migration("20200906162916_starting")]
+    [Migration("20200907160225_starting")]
     partial class starting
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

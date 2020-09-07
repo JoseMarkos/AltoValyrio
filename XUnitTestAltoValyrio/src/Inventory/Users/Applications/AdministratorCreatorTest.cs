@@ -1,4 +1,5 @@
 ﻿using Alto_Valyrio.src.Inventory.Users.Applications;
+using Alto_Valyrio.src.Inventory.Users.Domain;
 using Alto_Valyrio.src.Inventory.Users.Infrastructure.Persistance;
 using System;
 using System.Collections.Generic;
@@ -25,9 +26,7 @@ namespace XUnitTestAltoValyrio.src.Inventory.Users.Applications
         void Create()
         {
             var command = new CreatorCommand("Marcos", "hola");
-            var command1 = new CreatorCommand("Marcos", "hola1");
             handler.Trigger(command);
-            handler.Trigger(command1);
 
             var list = repository.Matching("Marcos");
             Assert.Equal(1, list.Count);

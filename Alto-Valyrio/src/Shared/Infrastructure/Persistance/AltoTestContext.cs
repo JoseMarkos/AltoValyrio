@@ -18,7 +18,7 @@ namespace Alto_Valyrio.src.Inventory.Auth.Infrastructure.Persistance
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=LAPTOP-8LQEAT9U\\UDEO;database=AltoTest;Trusted_Connection=true;");
+            optionsBuilder.UseSqlServer("server=LAPTOP-8LQEAT9U\\UDEO;database=AltoTestTwo;Trusted_Connection=true;");
         }
     }
 }

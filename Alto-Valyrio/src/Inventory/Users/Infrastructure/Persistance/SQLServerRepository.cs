@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Alto_Valyrio.src.Inventory.Users.Infrastructure.Persistance
 {
@@ -21,9 +22,7 @@ namespace Alto_Valyrio.src.Inventory.Users.Infrastructure.Persistance
                               select user
                               ;
 
-                var list = new List<User>();
-                list.Add(matches.FirstOrDefault());
-                return list;
+                return matches.ToList(); ;
             }
             catch (Exception)
             {
@@ -39,10 +38,11 @@ namespace Alto_Valyrio.src.Inventory.Users.Infrastructure.Persistance
             try
             {
                 context.Users.Add(user);
+                context.SaveChanges();
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                MessageBox.Show(e.Message);
             }
         }
 
