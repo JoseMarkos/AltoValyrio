@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Alto_Valyrio.Migrations
 {
-    [DbContext(typeof(AuthContext))]
-    [Migration("20200905055550_adding-purchases")]
-    partial class addingpurchases
+    [DbContext(typeof(AltoTestContext))]
+    [Migration("20200906162916_starting")]
+    partial class starting
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,24 +20,6 @@ namespace Alto_Valyrio.Migrations
                 .HasAnnotation("ProductVersion", "3.1.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Alto_Valyrio.src.Inventory.Auth.Infrastructure.Persistance.AuthUserModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AuthUsers");
-                });
 
             modelBuilder.Entity("Alto_Valyrio.src.Inventory.ProductPurchases.Domain.ProductPurchase", b =>
                 {
@@ -52,35 +34,17 @@ namespace Alto_Valyrio.Migrations
                     b.Property<int>("IdPurchase")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PurchaseModelId")
+                    b.Property<int?>("PurchaseId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PurchaseModelId");
-
-                    b.ToTable("ProductPurchase");
-                });
-
-            modelBuilder.Entity("Alto_Valyrio.src.Inventory.ProductPurchases.Infrastructure.Persistance.ProductPurchaseModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("IdProduct")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdPurchase")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
+                    b.HasIndex("PurchaseId");
 
                     b.ToTable("ProductPurchases");
                 });
 
-            modelBuilder.Entity("Alto_Valyrio.src.Inventory.Purchases.Infrastructure.Persistance.PurchaseModel", b =>
+            modelBuilder.Entity("Alto_Valyrio.src.Inventory.Purchases.Domain.Purchase", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -101,15 +65,23 @@ namespace Alto_Valyrio.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CustomerId");
+
                     b.ToTable("Purchases");
                 });
 
-            modelBuilder.Entity("Alto_Valyrio.src.Inventory.Users.Infrastructure.Persistance.UserModel", b =>
+            modelBuilder.Entity("Alto_Valyrio.src.Inventory.Users.Domain.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
@@ -117,19 +89,13 @@ namespace Alto_Valyrio.Migrations
                     b.Property<int?>("Phone")
                         .HasColumnType("int");
 
-                    b.Property<string>("PrimerApellido")
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SecondLastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PrimerNombre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Role")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SegundoApellido")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SegundoNombre")
+                    b.Property<string>("SecondName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
@@ -140,7 +106,7 @@ namespace Alto_Valyrio.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Alto_Valyrio.src.Inventory.Users.Infrastructure.Persistance.UserRoleModel", b =>
+            modelBuilder.Entity("Alto_Valyrio.src.Inventory.Users.Infrastructure.Persistance.UserRole", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -157,9 +123,18 @@ namespace Alto_Valyrio.Migrations
 
             modelBuilder.Entity("Alto_Valyrio.src.Inventory.ProductPurchases.Domain.ProductPurchase", b =>
                 {
-                    b.HasOne("Alto_Valyrio.src.Inventory.Purchases.Infrastructure.Persistance.PurchaseModel", null)
+                    b.HasOne("Alto_Valyrio.src.Inventory.Purchases.Domain.Purchase", null)
                         .WithMany("ProductPurchases")
-                        .HasForeignKey("PurchaseModelId");
+                        .HasForeignKey("PurchaseId");
+                });
+
+            modelBuilder.Entity("Alto_Valyrio.src.Inventory.Purchases.Domain.Purchase", b =>
+                {
+                    b.HasOne("Alto_Valyrio.src.Inventory.Users.Domain.User", "Customer")
+                        .WithMany("Purchases")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

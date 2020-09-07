@@ -3,28 +3,34 @@ using Alto_Valyrio.src.Inventory.Auth.Domain;
 using Alto_Valyrio.src.Inventory.Auth.Infrastructure.Persistance;
 using Alto_Valyrio.src.Inventory.Users.Domain;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 using Xunit;
 
 namespace XUnitTestAltoValyrio.src.Inventory.Auth.Infrastructure
 {
     public class AuthRespositoryTest
     {
+        SQLServerRepository repository;
+        UserAuthenticator authenticator;
+        AuthenticateUserCommandHandler handler;
+
+
+        public AuthRespositoryTest()
+        {
+            repository = new SQLServerRepository();
+            authenticator = new UserAuthenticator(repository);
+            handler = new AuthenticateUserCommandHandler(authenticator);
+
+        }
+
         [Fact]
         public void InvalidUsername()
         {
-            var username = new AuthUsername("Jose");
-            AuthPassword password = new AuthPassword("123");
-            var auth = new AuthUser(username, password);
+            AuthenticateUserCommand command = new AuthenticateUserCommand("Jose", "123");
+
             Assert.Throws<InvalidAuthUsernameExeption>(
                 () =>
                 {
-                    var repository = new SQLServerRepository();
-                    var authenticator = new UserAuthenticator(repository);
-                    authenticator.Authenticate(username, password);
+                    handler.Trigger(command);
                 }
                 );
         }
@@ -32,27 +38,22 @@ namespace XUnitTestAltoValyrio.src.Inventory.Auth.Infrastructure
         [Fact]
         public void InvalidCredentials()
         {
-            var username = new AuthUsername("Marcos");
-            AuthPassword password = new AuthPassword("123");
-            var auth = new AuthUser(username, password);
+            AuthenticateUserCommand command = new AuthenticateUserCommand("Marcos", "123");
+
             Assert.Throws<InvalidAuthCredentialsException>(
                 () =>
                 {
-                    var repository = new SQLServerRepository();
-                    var authenticator = new UserAuthenticator(repository);
-                    authenticator.Authenticate(username, password);
+                    handler.Trigger(command);
                 }
                 );
         }
 
         [Fact]
-            public void RegistrationPass()
+        public void RegistrationPass()
         {
-            var username = new AuthUsername("Marcos");
-            AuthPassword password = new AuthPassword("hola");
-            var repository = new SQLServerRepository();
-            var authenticator = new UserAuthenticator(repository);
-            authenticator.Authenticate(username, password);
+            AuthenticateUserCommand command = new AuthenticateUserCommand("Marcos", "hola");
+
+            handler.Trigger(command);
 
             Assert.True(true);
         }
@@ -62,8 +63,8 @@ namespace XUnitTestAltoValyrio.src.Inventory.Auth.Infrastructure
         {
             var auth = new User
             {
-                Username = new AuthUsername("Jose"),
-                PrimerApellido = "Culajay"
+                Username = new AuthUsername("Jose").GetValue(),
+                FirstName = "Culajay"
             };
 
             var properties = auth.GetType().GetProperties();
@@ -71,13 +72,13 @@ namespace XUnitTestAltoValyrio.src.Inventory.Auth.Infrastructure
 
             foreach (var item in properties)
             {
-                if (item.Name == "PrimerApellido")
+                if (item.Name == "LastName")
                 {
                     hola = item.Name;
                 }
             }
 
-            Assert.Equal("PrimerApellido", hola);
+            Assert.Equal("LastName", hola);
         }
 
         [Fact]
@@ -85,21 +86,21 @@ namespace XUnitTestAltoValyrio.src.Inventory.Auth.Infrastructure
         {
             var auth = new User
             {
-                Username = new AuthUsername("Jose"),
-                PrimerApellido = "Culajay"
+                Username = new AuthUsername("Jose").GetValue(),
+                LastName = "Culajay"
             };
 
             var properties = auth.GetType().GetProperties();
 
             foreach (var item in properties)
             {
-                if (item.Name == "PrimerApellido")
+                if (item.Name == "LastName")
                 {
                     item.SetValue(auth, "Bailon");
                 }
             }
 
-            Assert.Equal("Bailon", auth.PrimerApellido);
+            Assert.Equal("Bailon", auth.LastName);
         }
     }
 }

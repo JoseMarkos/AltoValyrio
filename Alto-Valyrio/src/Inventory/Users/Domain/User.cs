@@ -9,18 +9,18 @@ namespace Alto_Valyrio.src.Inventory.Users.Domain
     public sealed class User
     {
         public int Id { get; set; }
-        public string PrimerNombre { get; set; }
+        public string FirstName { get; set; }
 #nullable enable
-        public string? SegundoNombre { get; set; }
-        public string? PrimerApellido { get; set; }
-        public string? SegundoApellido { get; set; }
+        public string? SecondName { get; set; }
+        public string? LastName { get; set; }
+        public string? SecondLastName { get; set; }
 #nullable disable
         public ICollection<Purchase> Purchases { get; set; }
 #nullable enable
         public int? Phone { get; set; }
 #nullable disable
-        public AuthUsername Username { get; set; }
-        public AuthPassword Password { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
         
         public Roles Role { get; set; }
     }

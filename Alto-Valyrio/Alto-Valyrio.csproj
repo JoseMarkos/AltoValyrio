@@ -8,13 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200905051415_adding-users-and-roles.cs" />
-    <Compile Remove="Migrations\20200905051415_adding-users-and-roles.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="apps\" />
-    <Folder Include="src\Shared\Infrastructure\Persistance\" />
+    <Folder Include="apps\Inventory\Frontend\Templates\Partials\" />
+    <Folder Include="src\Inventory\ProductPurchases\Infrastructure\Persistance\" />
+    <Folder Include="src\Inventory\Purchases\Infrastructure\Persistance\" />
   </ItemGroup>
 
   <ItemGroup>

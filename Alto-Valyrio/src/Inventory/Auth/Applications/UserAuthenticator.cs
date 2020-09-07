@@ -25,7 +25,7 @@ namespace Alto_Valyrio.src.Inventory.Auth.Applications
         {
             if (auth is null)
             {
-                throw new InvalidAuthUsernameExeption(username);
+                throw new InvalidAuthUsernameExeption(username.GetValue());
             }
         }
 #nullable disable
@@ -34,7 +34,7 @@ namespace Alto_Valyrio.src.Inventory.Auth.Applications
         {
             if (!auth.PasswordMatches(password))
             {
-                throw new InvalidAuthCredentialsException(auth.GetUserName());
+                throw new InvalidAuthCredentialsException(auth.GetUserName().GetValue());
             }
         }
     }

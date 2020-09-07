@@ -17,4 +17,8 @@
     <ProjectReference Include="..\Alto-Valyrio\Alto-Valyrio.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="src\Inventory\Users\Infrastructure\" />
+  </ItemGroup>
+
 </Project>

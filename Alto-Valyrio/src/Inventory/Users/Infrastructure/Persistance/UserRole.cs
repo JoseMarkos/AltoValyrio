@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Alto_Valyrio.src.Inventory.Users.Infrastructure.Persistance
 {
-    public class UserRoleModel
+    public class UserRole
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -11,10 +11,10 @@ namespace Alto_Valyrio.src.Inventory.Auth.Infrastructure.Persistance
 #nullable enable
         public AuthUser? Search(AuthUsername username)
         {
-            using var context = new AuthContext();
+            using var context = new AltoTestContext();
             try
             {
-                var user = context.AuthUsers
+                var user = context.Users
                         .Where(b => b.Username == username.GetValue())
                         .FirstOrDefault();
 

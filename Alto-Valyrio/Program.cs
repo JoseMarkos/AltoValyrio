@@ -1,3 +1,5 @@
+using Alto_Valyrio.apps.Inventory.Backend;
+using Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +19,10 @@ namespace Alto_Valyrio
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            var dictionary = Routes.GetRoutes();
+            var controller = (IController)dictionary["Login"];
+            Application.Run(controller.Show());
         }
     }
 }
