@@ -9,14 +9,14 @@ namespace XUnitTestAltoValyrio.src.Inventory.Auth.Infrastructure
 {
     public class AuthRespositoryTest
     {
-        SQLServerRepository repository;
+        SQLServerAuthUserRepository repository;
         UserAuthenticator authenticator;
         AuthenticateUserCommandHandler handler;
 
 
         public AuthRespositoryTest()
         {
-            repository = new SQLServerRepository();
+            repository = new SQLServerAuthUserRepository();
             authenticator = new UserAuthenticator(repository);
             handler = new AuthenticateUserCommandHandler(authenticator);
 

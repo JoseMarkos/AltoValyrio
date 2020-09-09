@@ -15,7 +15,7 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Auth
 
         private void SetData()
         {
-            SQLServerRepository repository = new SQLServerRepository();
+            SQLServerAuthUserRepository repository = new SQLServerAuthUserRepository();
             UserAuthenticator authenticator = new UserAuthenticator(repository);
             AuthenticateUserCommandHandler handler =  new AuthenticateUserCommandHandler(authenticator);
             

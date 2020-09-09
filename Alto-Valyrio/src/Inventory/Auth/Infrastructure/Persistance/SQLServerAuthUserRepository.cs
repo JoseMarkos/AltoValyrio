@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Alto_Valyrio.src.Inventory.Auth.Infrastructure.Persistance
 {
-    public class SQLServerRepository : IAuthRepository
+    public class SQLServerAuthUserRepository : IAuthRepository
     {
 #nullable enable
         public AuthUser? Search(AuthUsername username)

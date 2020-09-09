@@ -10,26 +10,26 @@ namespace XUnitTestAltoValyrio.src.Inventory.Users.Applications
 {
     public class AdministratorCreatorTest
     {
-        readonly SQLServerRepository repository;
+        readonly SQLServerUsersRepository repository;
         readonly CreatorCommandHandler handler;
         readonly AdministratorCreator creator;
 
         public AdministratorCreatorTest()
         {
-            repository = new SQLServerRepository();
+            repository = new SQLServerUsersRepository();
             creator = new AdministratorCreator(repository);
             handler = new CreatorCommandHandler(creator);
         }
 
         [Fact]
 
-        void Create()
+        void UserAlreadyExists()
         {
-            var command = new CreatorCommand("Marcos", "hola");
-            handler.Trigger(command);
+            var command = new CreatorCommand("Marcos", "holalola", "Marcos", "Bailon");
 
-            var list = repository.Matching("Marcos");
-            Assert.Equal(1, list.Count);
+            Assert.Throws<UsernameAlreadyExistsException>(() => {
+                handler.Trigger(command);
+            });
         }
     }
 }

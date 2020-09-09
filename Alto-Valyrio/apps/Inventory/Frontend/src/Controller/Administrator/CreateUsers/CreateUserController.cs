@@ -17,12 +17,16 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Administrator.Crea
 
         public Form Show()
         {
-            SQLServerRepository repository = new SQLServerRepository();
-            AdministratorCreator administratorCreator = new AdministratorCreator(repository);
+            SQLServerUsersRepository usersRepository = new SQLServerUsersRepository();
+            AdministratorCreator administratorCreator = new AdministratorCreator(usersRepository);
             CreatorCommandHandler handler = new CreatorCommandHandler(administratorCreator);
+
+            SQLServerUserRolesRepository userRolesRepository = new SQLServerUserRolesRepository();
+            var roles = userRolesRepository.SearchAll();
 
             var data = new Dictionary<string, object>();
             data.Add("handler", handler);
+            data.Add("roles", roles);
 
             createUser = new CreateUser(data);
             return createUser;

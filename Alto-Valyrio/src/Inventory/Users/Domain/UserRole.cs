@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Alto_Valyrio.src.Inventory.Users.Infrastructure.Persistance
+namespace Alto_Valyrio.src.Inventory.Users.Domain
 {
     public class UserRole
     {

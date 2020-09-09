@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Alto_Valyrio.src.Inventory.Users.Infrastructure.Persistance
 {
-    public sealed class SQLServerRepository : IUserRepository
+    public sealed class SQLServerUsersRepository : IUserRepository
     {
 
         public ICollection<User> Matching(string criteria)

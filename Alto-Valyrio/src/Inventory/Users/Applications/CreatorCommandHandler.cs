@@ -19,7 +19,7 @@ namespace Alto_Valyrio.src.Inventory.Users.Applications
             var username = new AuthUsername(command.GetUsername());
             var password = new AuthPassword(command.GetPassword());
 
-            Creator.Create(username, password);
+            Creator.Create(username, password, command.GetFirstName(), command.GetLastName());
         }
     }
 }

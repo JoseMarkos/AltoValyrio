@@ -8,11 +8,16 @@ namespace Alto_Valyrio.src.Inventory.Users.Applications
     {
         private readonly string Username;
         private readonly string Password;
+        private readonly string FirstName;
+        private readonly string LastName;
 
-        public CreatorCommand(string username, string password)
+        public CreatorCommand(string username, string password
+                            , string firstName, string lastName)
         {
             this.Username = username;
             this.Password = password;
+            this.FirstName = firstName;
+            this.LastName = lastName;
         }
 
         public string GetUsername()
@@ -23,6 +28,16 @@ namespace Alto_Valyrio.src.Inventory.Users.Applications
         public string GetPassword()
         {
             return this.Password;
+        }
+
+        public string GetFirstName()
+        {
+            return this.FirstName;
+        }
+
+        public string GetLastName()
+        {
+            return this.LastName;
         }
     }
 }

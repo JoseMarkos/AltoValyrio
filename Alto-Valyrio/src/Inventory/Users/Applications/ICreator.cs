@@ -8,6 +8,7 @@ namespace Alto_Valyrio.src.Inventory.Users.Applications
 {
     public interface ICreator
     {
-        void Create(AuthUsername username, AuthPassword password);
+        void Create(AuthUsername username
+                , AuthPassword password, string firstName, string lastName);
     }
 }
