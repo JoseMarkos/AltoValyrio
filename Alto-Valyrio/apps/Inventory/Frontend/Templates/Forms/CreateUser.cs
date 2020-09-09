@@ -8,14 +8,16 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms
 {
     public partial class CreateUser : Form
     {
-        private CreatorCommandHandler Handler;
+        private CreatorCommandHandler AdministratorHandler;
+        private CreatorCommandHandler CustomerHandler;
         private CreatorCommand Command;
         private List<string> UserRoles;
 
         public CreateUser(Dictionary<string, object> data)
         {
             InitializeComponent();
-            Handler = (CreatorCommandHandler)data["handler"];
+            AdministratorHandler = (CreatorCommandHandler)data["administratorHandler"];
+            CustomerHandler = (CreatorCommandHandler)data["customerHandler"];
             UserRoles = (List<string>)data["roles"];
 
             PopulateUserRoles();
@@ -28,10 +30,10 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms
 
             try
             {
-                Handler.Trigger(Command);
+                AdministratorHandler.Trigger(Command);
                 this.Close();
             }
-            catch (UsernameAlreadyExistsException userAlreadyExists)
+            catch (InvalidUsernameException userAlreadyExists)
             {
                 labelError.Text = userAlreadyExists.Message;
             }
@@ -50,10 +52,10 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms
 
             try
             {
-                Handler.Trigger(Command);
+                AdministratorHandler.Trigger(Command);
                 CleanInputs();
             }
-            catch (UsernameAlreadyExistsException userAlreadyExists)
+            catch (InvalidUsernameException userAlreadyExists)
             {
                 labelError.Text = userAlreadyExists.Message;
             }
@@ -81,6 +83,11 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms
             {
                 comboRoles.Items.Add(item);
             }
+        }
+
+        private int GetUserRole()
+        {
+            return comboRoles.SelectedIndex;
         }
     }
 }

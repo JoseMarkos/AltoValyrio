@@ -40,7 +40,7 @@ namespace Alto_Valyrio.src.Inventory.Users.Applications
 
             if (!(match is null))
             {
-                throw new UsernameAlreadyExistsException(username.GetValue());
+                throw new InvalidUsernameException(username.GetValue());
             }
         }
     }

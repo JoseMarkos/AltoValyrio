@@ -13,13 +13,14 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Administrator.Crea
     {
         private static Form createUser;
 
-
-
         public Form Show()
         {
             SQLServerUsersRepository usersRepository = new SQLServerUsersRepository();
             AdministratorCreator administratorCreator = new AdministratorCreator(usersRepository);
-            CreatorCommandHandler handler = new CreatorCommandHandler(administratorCreator);
+            CustomerCreator customerCreator = new CustomerCreator(usersRepository);
+            CreatorCommandHandler administratorHandler = new CreatorCommandHandler(administratorCreator);
+            CreatorCommandHandler customerHandler = new CreatorCommandHandler(customerCreator);
+            var userFactory = new UserFactory();
 
             SQLServerUserRolesRepository userRolesRepository = new SQLServerUserRolesRepository();
             var roles = userRolesRepository.SearchAll();
@@ -31,7 +32,10 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Administrator.Crea
             }
 
             var data = new Dictionary<string, object>();
-            data.Add("handler", handler);
+            data.Add("administratorHandler", administratorHandler);
+            data.Add("customerHandler", customerHandler);
+            data.Add("customerHandler", customerHandler);
+            data.Add("factory", userFactory);
             data.Add("roles", userRoles);
 
             createUser = new CreateUser(data);

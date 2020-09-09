@@ -27,7 +27,7 @@ namespace XUnitTestAltoValyrio.src.Inventory.Users.Applications
         {
             var command = new CreatorCommand("Marcos", "holalola", "Marcos", "Bailon");
 
-            Assert.Throws<UsernameAlreadyExistsException>(() => {
+            Assert.Throws<InvalidUsernameException>(() => {
                 handler.Trigger(command);
             });
         }

@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Alto_Valyrio.src.Inventory.Users.Domain
 {
-    public class UsernameAlreadyExistsException : Exception
+    public class InvalidUsernameException : Exception
     {
-        public UsernameAlreadyExistsException(string username) : base ($"The user {username} is not available")
+        public InvalidUsernameException(string username) : base ($"The user {username} is not available")
         {
         }
     }
