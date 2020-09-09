@@ -23,10 +23,16 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Administrator.Crea
 
             SQLServerUserRolesRepository userRolesRepository = new SQLServerUserRolesRepository();
             var roles = userRolesRepository.SearchAll();
+            var userRoles = new List<string>();
+
+            foreach (var item in roles)
+            {
+                userRoles.Add(item.Name);
+            }
 
             var data = new Dictionary<string, object>();
             data.Add("handler", handler);
-            data.Add("roles", roles);
+            data.Add("roles", userRoles);
 
             createUser = new CreateUser(data);
             return createUser;

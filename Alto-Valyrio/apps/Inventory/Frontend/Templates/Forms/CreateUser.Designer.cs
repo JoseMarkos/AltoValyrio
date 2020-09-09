@@ -77,14 +77,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(537, 497);
+            this.panel1.Size = new System.Drawing.Size(537, 381);
             this.panel1.TabIndex = 0;
             // 
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.RosyBrown;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(414, 21);
+            this.btnCancel.Location = new System.Drawing.Point(392, 21);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(111, 38);
             this.btnCancel.TabIndex = 6;
@@ -96,7 +96,7 @@
             // 
             this.btnSaveAndNew.BackColor = System.Drawing.Color.Bisque;
             this.btnSaveAndNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveAndNew.Location = new System.Drawing.Point(248, 21);
+            this.btnSaveAndNew.Location = new System.Drawing.Point(228, 21);
             this.btnSaveAndNew.Name = "btnSaveAndNew";
             this.btnSaveAndNew.Size = new System.Drawing.Size(149, 38);
             this.btnSaveAndNew.TabIndex = 5;
@@ -108,7 +108,7 @@
             // 
             this.btnSave.BackColor = System.Drawing.Color.LightGreen;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Location = new System.Drawing.Point(120, 21);
+            this.btnSave.Location = new System.Drawing.Point(105, 21);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(108, 38);
             this.btnSave.TabIndex = 4;
@@ -121,7 +121,7 @@
             this.labelError.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelError.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelError.ForeColor = System.Drawing.Color.Maroon;
-            this.labelError.Location = new System.Drawing.Point(37, 444);
+            this.labelError.Location = new System.Drawing.Point(37, 335);
             this.labelError.Name = "labelError";
             this.labelError.Size = new System.Drawing.Size(466, 40);
             this.labelError.TabIndex = 3;
@@ -133,9 +133,8 @@
             this.tabControl1.Location = new System.Drawing.Point(37, 82);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 2;
-            this.tabControl1.Size = new System.Drawing.Size(470, 359);
+            this.tabControl1.Size = new System.Drawing.Size(470, 240);
             this.tabControl1.TabIndex = 0;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabAccountDetails
             // 
@@ -150,14 +149,14 @@
             this.tabAccountDetails.Location = new System.Drawing.Point(4, 34);
             this.tabAccountDetails.Name = "tabAccountDetails";
             this.tabAccountDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAccountDetails.Size = new System.Drawing.Size(462, 321);
+            this.tabAccountDetails.Size = new System.Drawing.Size(462, 202);
             this.tabAccountDetails.TabIndex = 0;
             this.tabAccountDetails.Text = "Account Details";
             this.tabAccountDetails.UseVisualStyleBackColor = true;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(267, 51);
+            this.txtLastName.Location = new System.Drawing.Point(266, 137);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(176, 33);
             this.txtLastName.TabIndex = 3;
@@ -166,7 +165,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(267, 19);
+            this.label4.Location = new System.Drawing.Point(266, 105);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 20);
             this.label4.TabIndex = 1;
@@ -174,7 +173,7 @@
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(20, 229);
+            this.txtFirstName.Location = new System.Drawing.Point(266, 51);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(176, 33);
             this.txtFirstName.TabIndex = 2;
@@ -183,7 +182,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(20, 196);
+            this.label3.Location = new System.Drawing.Point(266, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 20);
             this.label3.TabIndex = 1;
@@ -229,7 +228,7 @@
             this.tabAssignedUserRole.Location = new System.Drawing.Point(4, 34);
             this.tabAssignedUserRole.Name = "tabAssignedUserRole";
             this.tabAssignedUserRole.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAssignedUserRole.Size = new System.Drawing.Size(462, 321);
+            this.tabAssignedUserRole.Size = new System.Drawing.Size(462, 202);
             this.tabAssignedUserRole.TabIndex = 1;
             this.tabAssignedUserRole.Text = "Assigned User Role";
             this.tabAssignedUserRole.UseVisualStyleBackColor = true;
@@ -237,9 +236,9 @@
             // comboRoles
             // 
             this.comboRoles.FormattingEnabled = true;
-            this.comboRoles.Location = new System.Drawing.Point(21, 37);
+            this.comboRoles.Location = new System.Drawing.Point(79, 39);
             this.comboRoles.Name = "comboRoles";
-            this.comboRoles.Size = new System.Drawing.Size(121, 33);
+            this.comboRoles.Size = new System.Drawing.Size(292, 33);
             this.comboRoles.TabIndex = 1;
             // 
             // button2
@@ -393,7 +392,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 497);
+            this.ClientSize = new System.Drawing.Size(537, 381);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
