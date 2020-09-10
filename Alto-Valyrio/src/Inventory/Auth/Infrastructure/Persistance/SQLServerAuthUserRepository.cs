@@ -1,8 +1,6 @@
 ﻿using Alto_Valyrio.src.Inventory.Auth.Domain;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Alto_Valyrio.src.Inventory.Auth.Infrastructure.Persistance
 {

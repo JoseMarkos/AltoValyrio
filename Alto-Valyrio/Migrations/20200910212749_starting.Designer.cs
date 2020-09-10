@@ -4,14 +4,16 @@ using Alto_Valyrio.src.Inventory.Auth.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Alto_Valyrio.Migrations
 {
     [DbContext(typeof(AltoTestContext))]
-    partial class AltoTestContextModelSnapshot : ModelSnapshot
+    [Migration("20200910212749_starting")]
+    partial class starting
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -93,15 +95,18 @@ namespace Alto_Valyrio.Migrations
                     b.Property<string>("SecondName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserRoleId")
+                    b.Property<int>("UserRolesId")
                         .HasColumnType("int");
 
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UserroleId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("UserRoleId");
+                    b.HasIndex("UserroleId");
 
                     b.ToTable("Users");
                 });
@@ -139,11 +144,9 @@ namespace Alto_Valyrio.Migrations
 
             modelBuilder.Entity("Alto_Valyrio.src.Inventory.Users.Domain.User", b =>
                 {
-                    b.HasOne("Alto_Valyrio.src.Inventory.Users.Domain.UserRole", "UserRole")
+                    b.HasOne("Alto_Valyrio.src.Inventory.Users.Domain.UserRole", "Userrole")
                         .WithMany()
-                        .HasForeignKey("UserRoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserroleId");
                 });
 #pragma warning restore 612, 618
         }

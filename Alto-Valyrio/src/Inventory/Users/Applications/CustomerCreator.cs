@@ -20,12 +20,15 @@ namespace Alto_Valyrio.src.Inventory.Users.Applications
         {
             EnsureUsernameNotExists(username);
 
+            int userRoleId = (int)Roles.Customer;
+            userRoleId++;
+
             User user = new User
             {
                 Purchases = new List<Purchase>(),
-                Role = Roles.Customer,
+                UserRoleId = userRoleId,
                 Username = username.GetValue(),
-                Password = username.GetValue(),
+                Password = password.GetValue(),
                 FirstName = firtName,
                 LastName = lastName
             };

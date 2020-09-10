@@ -22,11 +22,14 @@ namespace Alto_Valyrio.src.Inventory.Users.Applications
                             , string firtName, string lastName)
         {
             EnsureUsernameNotExists(username);
-            
+
+            int userRoleId = (int)Roles.Administrator;
+            userRoleId++;
+
             var user = new User
             {
                 Purchases = null,
-                Role = Roles.Administrator,
+                UserRoleId = userRoleId,
                 Username = username.GetValue(),
                 Password = password.GetValue(),
                 FirstName =  firtName,

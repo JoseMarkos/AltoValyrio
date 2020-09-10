@@ -8,7 +8,7 @@ namespace Alto_Valyrio.src.Inventory.Users.Applications
 {
     public sealed class UserFactory
     {
-        public void Create(Roles role, CreatorCommand command)
+        public void Create(int role, CreatorCommand command)
         {
             SQLServerUsersRepository usersRepository = new SQLServerUsersRepository();
             AdministratorCreator administratorCreator = new AdministratorCreator(usersRepository);
@@ -19,11 +19,11 @@ namespace Alto_Valyrio.src.Inventory.Users.Applications
 
             switch (role)
             {
-                case Roles.Administrator:
+                case (int)Roles.Administrator:
                     administratorHandler.Trigger(command);
                     break;
 
-                case Roles.Customer:
+                case (int)Roles.Customer:
                     customerHandler.Trigger(command);
                     break;
                 default:

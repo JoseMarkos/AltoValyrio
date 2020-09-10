@@ -34,7 +34,6 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Administrator.Crea
             var data = new Dictionary<string, object>();
             data.Add("administratorHandler", administratorHandler);
             data.Add("customerHandler", customerHandler);
-            data.Add("customerHandler", customerHandler);
             data.Add("factory", userFactory);
             data.Add("roles", userRoles);
 

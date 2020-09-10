@@ -35,15 +35,8 @@ namespace Alto_Valyrio.src.Inventory.Users.Infrastructure.Persistance
         {
             using var context = new AltoTestContext();
 
-            try
-            {
-                context.Users.Add(user);
-                context.SaveChanges();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
+            context.Users.Add(user);
+            context.SaveChanges();
         }
 
         public ICollection<User> SearchAll()
@@ -58,7 +51,6 @@ namespace Alto_Valyrio.src.Inventory.Users.Infrastructure.Persistance
             }
             catch (Exception)
             {
-
                 return null;
             }
         }

@@ -20,8 +20,10 @@ namespace Alto_Valyrio.src.Inventory.Users.Domain
 #nullable disable
         public string Username { get; set; }
         public string Password { get; set; }
-        
-        public Roles Role { get; set; }
+
+        public int UserRoleId { get; set; }
+
+        public UserRole UserRole { get; set; }
     }
 
     public enum Roles

@@ -33,11 +33,18 @@ namespace Alto_Valyrio.Migrations
                     Phone = table.Column<int>(nullable: true),
                     Username = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
-                    Role = table.Column<int>(nullable: false)
+                    UserRolesId = table.Column<int>(nullable: false),
+                    UserroleId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Users_UserRoles_UserroleId",
+                        column: x => x.UserroleId,
+                        principalTable: "UserRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -92,6 +99,11 @@ namespace Alto_Valyrio.Migrations
                 name: "IX_Purchases_CustomerId",
                 table: "Purchases",
                 column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_UserroleId",
+                table: "Users",
+                column: "UserroleId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -100,13 +112,13 @@ namespace Alto_Valyrio.Migrations
                 name: "ProductPurchases");
 
             migrationBuilder.DropTable(
-                name: "UserRoles");
-
-            migrationBuilder.DropTable(
                 name: "Purchases");
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "UserRoles");
         }
     }
 }

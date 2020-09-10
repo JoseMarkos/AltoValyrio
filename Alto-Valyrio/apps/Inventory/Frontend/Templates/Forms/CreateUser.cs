@@ -1,5 +1,4 @@
 ﻿using Alto_Valyrio.src.Inventory.Users.Applications;
-using Alto_Valyrio.src.Inventory.Users.Domain;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -8,17 +7,15 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms
 {
     public partial class CreateUser : Form
     {
-        private CreatorCommandHandler AdministratorHandler;
-        private CreatorCommandHandler CustomerHandler;
         private CreatorCommand Command;
         private List<string> UserRoles;
+        private UserFactory UserFactory;
 
         public CreateUser(Dictionary<string, object> data)
         {
             InitializeComponent();
-            AdministratorHandler = (CreatorCommandHandler)data["administratorHandler"];
-            CustomerHandler = (CreatorCommandHandler)data["customerHandler"];
             UserRoles = (List<string>)data["roles"];
+            UserFactory = (UserFactory)data["factory"];
 
             PopulateUserRoles();
         }
@@ -30,12 +27,14 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms
 
             try
             {
-                AdministratorHandler.Trigger(Command);
+                Create();
+
                 this.Close();
             }
-            catch (InvalidUsernameException userAlreadyExists)
+            catch (Exception saveUserException)
             {
-                labelError.Text = userAlreadyExists.Message;
+                // Generic because it could be invalid user name or invalid user role
+                labelError.Text = saveUserException.Message;
             }
         }
 
@@ -52,15 +51,20 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms
 
             try
             {
-                AdministratorHandler.Trigger(Command);
+                Create();
+
                 CleanInputs();
             }
-            catch (InvalidUsernameException userAlreadyExists)
+            catch (Exception saveAndNewUserException)
             {
-                labelError.Text = userAlreadyExists.Message;
+                labelError.Text = saveAndNewUserException.Message;
             }
         }
 
+        private void Create()
+        {
+            UserFactory.Create(GetUserRole(), Command);
+        }
 
         private void CleanInputs()
         {
@@ -75,6 +79,8 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms
                     txt.Text = String.Empty;
                 }
             }
+
+            labelError.Text = String.Empty;
         }
 
         private void PopulateUserRoles()
