@@ -8,9 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200910224733_warehosue-beta.cs" />
+    <Compile Remove="Migrations\20200910224733_warehosue-beta.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="apps\Inventory\Frontend\src\Controller\Customer\Dashboard\" />
     <Folder Include="apps\Inventory\Frontend\Templates\Partials\" />
     <Folder Include="src\Inventory\ProductPurchases\Infrastructure\Persistance\" />
+    <Folder Include="src\Inventory\Products\Domain\" />
+    <Folder Include="src\Inventory\Products\Applications\" />
+    <Folder Include="src\Inventory\Products\Infrastructure\Persistance\" />
     <Folder Include="src\Inventory\Purchases\Infrastructure\Persistance\" />
+    <Folder Include="src\Inventory\Warehouses\Infrastructure\Persistance\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,7 +1,7 @@
 ﻿using Alto_Valyrio.src.Inventory.ProductPurchases.Domain;
 using Alto_Valyrio.src.Inventory.Purchases.Domain;
 using Alto_Valyrio.src.Inventory.Users.Domain;
-using Alto_Valyrio.src.Inventory.Users.Infrastructure.Persistance;
+using Alto_Valyrio.src.Inventory.Warehouses.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,6 +15,7 @@ namespace Alto_Valyrio.src.Inventory.Auth.Infrastructure.Persistance
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<Purchase> Purchases { get; set; }
         public DbSet<ProductPurchase> ProductPurchases { get; set; }
+        public DbSet<Warehouse> Warehouses { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
