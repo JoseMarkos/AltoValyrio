@@ -13,7 +13,6 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Administrator.Crea
 
         public Form Show()
         {
-            SQLServerUsersRepository usersRepository = new SQLServerUsersRepository();
             var userFactory = new UserFactory();
 
             SQLServerUserRolesRepository userRolesRepository = new SQLServerUserRolesRepository();
@@ -25,9 +24,11 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Administrator.Crea
                 userRoles.Add(item.Name);
             }
 
-            var data = new Dictionary<string, object>();
-            data.Add("factory", userFactory);
-            data.Add("roles", userRoles);
+            var data = new Dictionary<string, object>
+            {
+                { "factory", userFactory },
+                { "roles", userRoles }
+            };
 
             createUser = new CreateUser(data);
             return createUser;

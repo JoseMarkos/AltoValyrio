@@ -91,7 +91,7 @@
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // btnSaveAndNew
             // 
@@ -103,7 +103,7 @@
             this.btnSaveAndNew.TabIndex = 5;
             this.btnSaveAndNew.Text = "Save and new";
             this.btnSaveAndNew.UseVisualStyleBackColor = false;
-            this.btnSaveAndNew.Click += new System.EventHandler(this.btnSaveAndNew_Click);
+            this.btnSaveAndNew.Click += new System.EventHandler(this.BtnSaveAndNew_Click);
             // 
             // btnSave
             // 
@@ -115,7 +115,7 @@
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // labelError
             // 

@@ -8,8 +8,8 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms
     public partial class CreateUser : Form
     {
         private CreatorCommand Command;
-        private List<string> UserRoles;
-        private UserFactory UserFactory;
+        private readonly List<string> UserRoles;
+        private readonly UserFactory UserFactory;
 
         public CreateUser(Dictionary<string, object> data)
         {
@@ -20,7 +20,7 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms
             PopulateUserRoles();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
             Command = new CreatorCommand(txtUsername.Text, txtPassword.Text
                                        , txtFirstName.Text, txtLastName.Text);
@@ -38,12 +38,12 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnSaveAndNew_Click(object sender, EventArgs e)
+        private void BtnSaveAndNew_Click(object sender, EventArgs e)
         {
 
             Command = new CreatorCommand(txtUsername.Text, txtPassword.Text
