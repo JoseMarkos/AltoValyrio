@@ -1,5 +1,6 @@
 ﻿using Alto_Valyrio.apps.Inventory.Backend;
 using Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Warehouses;
+using Alto_Valyrio.src.Inventory.Warehouses.Applications.Create;
 using Alto_Valyrio.src.Inventory.Warehouses.Infrastructure.Persistance;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,9 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Customer.CreateWar
             var warehouseAddressStates = warehouseAddressStateRepository.SearchAll();
             var gtDepartments = new List<string>();
             var states = new List<string>();
+            var repository = new SQLServerWarehouseRepository();
+            var creator = new WarehouseCreator(repository);
+            var handler = new WarehouseCommandHandler(creator);
 
             foreach (var item in warehouseAddressStates)
             {
@@ -35,6 +39,7 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Customer.CreateWar
 
             data.Add("warehousesAddressStates", gtDepartments);
             data.Add("warehousesStates", states);
+            data.Add("handler", handler);
 
             createWarehosue = new CreateWarehouse(data);
             return createWarehosue;

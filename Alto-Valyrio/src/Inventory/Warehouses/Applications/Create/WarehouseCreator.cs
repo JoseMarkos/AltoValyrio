@@ -25,5 +25,16 @@ namespace Alto_Valyrio.src.Inventory.Warehouses.Applications.Create
 
             Repository.Save(warehouse);
         }
+
+        private void EnsureWarehouseNotExists(int id)
+        {
+            var match = Repository.Search(id);
+
+            if (!(match is null))
+            {
+//                throw new InvalidUsernameException(username.GetValue());
+            }
+        }
+
     }
 }

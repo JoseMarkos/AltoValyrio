@@ -15,5 +15,17 @@ namespace Alto_Valyrio.src.Inventory.Warehouses.Infrastructure.Persistance
             context.Warehouses.Add(warehouse);
             context.SaveChanges();
         }
+
+        public Warehouse Search(int id)
+        {
+            using var context = new AltoTestContext();
+
+           /* var match = from warehouse in context.Warehouses
+                   where warehouse.Id == id
+                   select warehouse;
+           */
+
+            return new Warehouse();
+        }
     }
 }
