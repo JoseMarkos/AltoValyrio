@@ -69,6 +69,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnSaveAndNew);
             this.panel1.Controls.Add(this.btnSave);

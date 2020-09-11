@@ -4,14 +4,16 @@ using Alto_Valyrio.src.Inventory.Auth.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Alto_Valyrio.Migrations
 {
     [DbContext(typeof(AltoTestContext))]
-    partial class AltoTestContextModelSnapshot : ModelSnapshot
+    [Migration("20200910232238_warehosue-beta3")]
+    partial class warehosuebeta3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -4,14 +4,16 @@ using Alto_Valyrio.src.Inventory.Auth.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Alto_Valyrio.Migrations
 {
     [DbContext(typeof(AltoTestContext))]
-    partial class AltoTestContextModelSnapshot : ModelSnapshot
+    [Migration("20200910232000_warehosue-beta2")]
+    partial class warehosuebeta2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -188,7 +190,7 @@ namespace Alto_Valyrio.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("WarehouseStates");
+                    b.ToTable("WarehouseState");
                 });
 
             modelBuilder.Entity("Alto_Valyrio.src.Inventory.ProductPurchases.Domain.ProductPurchase", b =>

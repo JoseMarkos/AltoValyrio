@@ -20,7 +20,6 @@
     <Folder Include="src\Inventory\Products\Applications\" />
     <Folder Include="src\Inventory\Products\Infrastructure\Persistance\" />
     <Folder Include="src\Inventory\Purchases\Infrastructure\Persistance\" />
-    <Folder Include="src\Inventory\Warehouses\Infrastructure\Persistance\" />
   </ItemGroup>
 
   <ItemGroup>
