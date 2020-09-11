@@ -39,6 +39,5 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Customer.CreateWar
             createWarehosue = new CreateWarehouse(data);
             return createWarehosue;
         }
-
     }
 }
