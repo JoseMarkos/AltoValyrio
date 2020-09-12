@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTotalPrice = new System.Windows.Forms.TextBox();
+            this.labelTotalPrice = new System.Windows.Forms.Label();
             this.txtPackingAmount = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtAmount = new System.Windows.Forms.TextBox();
@@ -57,8 +59,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.labelTotalPrice = new System.Windows.Forms.Label();
-            this.txtTotalPrice = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,6 +100,22 @@
             this.panel1.Size = new System.Drawing.Size(930, 660);
             this.panel1.TabIndex = 0;
             // 
+            // txtTotalPrice
+            // 
+            this.txtTotalPrice.Location = new System.Drawing.Point(666, 363);
+            this.txtTotalPrice.Name = "txtTotalPrice";
+            this.txtTotalPrice.Size = new System.Drawing.Size(232, 33);
+            this.txtTotalPrice.TabIndex = 12;
+            // 
+            // labelTotalPrice
+            // 
+            this.labelTotalPrice.AutoSize = true;
+            this.labelTotalPrice.Location = new System.Drawing.Point(666, 319);
+            this.labelTotalPrice.Name = "labelTotalPrice";
+            this.labelTotalPrice.Size = new System.Drawing.Size(99, 25);
+            this.labelTotalPrice.TabIndex = 17;
+            this.labelTotalPrice.Text = "Total price";
+            // 
             // txtPackingAmount
             // 
             this.txtPackingAmount.Enabled = false;
@@ -107,15 +123,16 @@
             this.txtPackingAmount.Name = "txtPackingAmount";
             this.txtPackingAmount.Size = new System.Drawing.Size(232, 33);
             this.txtPackingAmount.TabIndex = 11;
+            this.txtPackingAmount.TextChanged += new System.EventHandler(this.TotalPricePackingCalculation);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(666, 209);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(172, 25);
+            this.label12.Size = new System.Drawing.Size(171, 25);
             this.label12.TabIndex = 16;
-            this.label12.Text = "Amount of packing";
+            this.label12.Text = "Amount in packing";
             // 
             // txtAmount
             // 
@@ -124,6 +141,7 @@
             this.txtAmount.Size = new System.Drawing.Size(232, 33);
             this.txtAmount.TabIndex = 10;
             this.txtAmount.Text = "1";
+            this.txtAmount.TextChanged += new System.EventHandler(this.MakeCalculationEvent);
             // 
             // label11
             // 
@@ -229,6 +247,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(241, 33);
             this.txtPrice.TabIndex = 3;
+            this.txtPrice.TextChanged += new System.EventHandler(this.TotalPriceSingleCalculation);
             // 
             // txtBrand
             // 
@@ -342,22 +361,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
-            // labelTotalPrice
-            // 
-            this.labelTotalPrice.AutoSize = true;
-            this.labelTotalPrice.Location = new System.Drawing.Point(666, 319);
-            this.labelTotalPrice.Name = "labelTotalPrice";
-            this.labelTotalPrice.Size = new System.Drawing.Size(99, 25);
-            this.labelTotalPrice.TabIndex = 17;
-            this.labelTotalPrice.Text = "Total price";
-            // 
-            // txtTotalPrice
-            // 
-            this.txtTotalPrice.Location = new System.Drawing.Point(666, 363);
-            this.txtTotalPrice.Name = "txtTotalPrice";
-            this.txtTotalPrice.Size = new System.Drawing.Size(232, 33);
-            this.txtTotalPrice.TabIndex = 12;
-            // 
             // CreateProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
@@ -408,7 +411,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtPackingAmount;
         private System.Windows.Forms.Label labelTotalPrice;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtTotalPrice;
     }
 }

@@ -34,5 +34,7 @@ namespace Alto_Valyrio.src.Inventory.Products.Domain
 
         public string? Description { get; set; }
 #nullable disable
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal TotalPrice { get; set; }
     }
 }

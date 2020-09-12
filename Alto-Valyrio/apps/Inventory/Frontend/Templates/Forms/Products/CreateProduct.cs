@@ -58,8 +58,9 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
         {
             double weight = double.Parse(txtWeight.Text);
             decimal price = decimal.Parse(txtPrice.Text);
+            decimal totalPrice = decimal.Parse(txtTotalPrice.Text);
 
-            Command = new ProductCommand(txtName.Text, txtBrand.Text, GetCategoryId(), GetPackingTypeId(), price, GetRefrigeratedId(), dateExpiration.Value, GetLocationId(), weight, txtDescription.Text);
+            Command = new ProductCommand(txtName.Text, txtBrand.Text, GetCategoryId(), GetPackingTypeId(), price, GetRefrigeratedId(), dateExpiration.Value, GetLocationId(), weight, txtDescription.Text, totalPrice);
             CreateHandler.Trigger(Command);
         }
 
@@ -151,6 +152,74 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
             int currentIndex = GetPackingTypeId();
 
             FieldsVisibilityHandler.Trigger(txtPackingAmount, PackingSingleIndex, currentIndex);
+            MakeCalculation();
+        }
+
+        private void TotalPriceSingleCalculation(object sender, EventArgs e)
+        {
+            CalculateSinglePrice();  
+        }
+
+        private void CalculateSinglePrice()
+        {
+            try
+            {
+                int units = int.Parse(txtAmount.Text);
+
+                if (txtPrice.Text != String.Empty)
+                {
+                    decimal pricePerUnit = decimal.Parse(txtPrice.Text);
+                    txtTotalPrice.Text = TotalPriceCalculator.Calculate(units, pricePerUnit).ToString();
+                }
+            }
+            catch (Exception priceValueException)
+            {
+                labelError.Text = priceValueException.Message;
+            }
+        }
+
+        private void TotalPricePackingCalculation(object sender, EventArgs e)
+        {
+            CalculatePricePacking();
+        }
+
+        private void CalculatePricePacking()
+        {
+            try
+            {
+                if (txtPackingAmount.Text != String.Empty)
+                {
+                    int unitsPerPacking = int.Parse(txtPackingAmount.Text);
+                    int unitsOfPacking = int.Parse(txtAmount.Text);
+                    int units = unitsOfPacking * unitsPerPacking;
+
+                    if (txtPrice.Text != String.Empty)
+                    {
+                        decimal pricePerUnit = decimal.Parse(txtPrice.Text);
+                        txtTotalPrice.Text = TotalPriceCalculator.Calculate(units, pricePerUnit).ToString();
+                    }
+                }
+            }
+            catch (Exception priceValueException)
+            {
+                labelError.Text = priceValueException.Message;
+            }
+        }
+
+        private void MakeCalculation()
+        {
+            if (PackingSingleIndex == comboPackingType.SelectedIndex)
+            {
+                CalculateSinglePrice();
+                return;
+            }
+
+            CalculatePricePacking();
+        }
+
+        private void MakeCalculationEvent(object sender, EventArgs e)
+        {
+            MakeCalculation();
         }
     }
 }

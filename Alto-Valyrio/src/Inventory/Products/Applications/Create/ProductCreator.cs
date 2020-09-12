@@ -15,7 +15,7 @@ namespace Alto_Valyrio.src.Inventory.Products.Applications.Create
         }
 
         public void Create(ProductName name, ProductBrand brand, ProductCategory category, ProductPacking packing, decimal price
-            , bool refrigerated, DateTime expirationDate, int locationId, double weight, string description)
+            , bool refrigerated, DateTime expirationDate, ProductLocation locationId, double weight, string description, decimal totalPrice)
         {
             var product = new Product()
             {
@@ -26,9 +26,10 @@ namespace Alto_Valyrio.src.Inventory.Products.Applications.Create
                 Price = price,
                 Refrigerated = refrigerated,
                 ExpirationDate = expirationDate,
-                LocationId = locationId,
+                LocationId = locationId.GetValue(),
                 Weight = weight,
-                Description = description
+                Description = description,
+                TotalPrice = totalPrice
             };
 
             Repository.Save(product);
