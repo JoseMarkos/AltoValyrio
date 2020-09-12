@@ -13,6 +13,7 @@ namespace Alto_Valyrio.src.Inventory.Products.Domain
 
         [Required]
         public string Name { get; set; }
+        public int Amount { get; set; }
 
 #nullable enable
         public int? CategoryId { get; set; }

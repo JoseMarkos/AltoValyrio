@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Alto_Valyrio.src.Shared.apps.Frontend.Templates;
 using Alto_Valyrio.src.Inventory.Products.Domain;
+using Alto_Valyrio.apps.Inventory.Frontend.src.Packing;
 
 namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
 {
@@ -18,6 +19,7 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
         private readonly List<string> Categories;
         private readonly List<string> Locations;
         private readonly List<string> PackingTypes;
+        private readonly int PackingSingleIndex = 1;
 
         public CreateProduct(Dictionary<string, object> data)
         {
@@ -81,6 +83,8 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
         {
             comboRefrigerated.Items.Add("No");
             comboRefrigerated.Items.Add("Yes");
+
+            comboRefrigerated.SelectedIndex = 0;
         }
 
         private bool GetRefrigeratedId()
@@ -138,7 +142,15 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
                 comboPackingType.Items.Add(item);
             }
 
-            //comboPackingType.SelectedIndex = 1;
+            comboPackingType.SelectedIndex = PackingSingleIndex;
+        }
+
+
+        private void EnableAmountPackingField(object sender, EventArgs e)
+        {
+            int currentIndex = GetPackingTypeId();
+
+            FieldsVisibilityHandler.Trigger(txtPackingAmount, PackingSingleIndex, currentIndex);
         }
     }
 }

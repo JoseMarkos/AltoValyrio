@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtPackingAmount = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.btnSaveAndNew = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -53,11 +57,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.labelTotalPrice = new System.Windows.Forms.Label();
+            this.txtTotalPrice = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtTotalPrice);
+            this.panel1.Controls.Add(this.labelTotalPrice);
+            this.panel1.Controls.Add(this.txtPackingAmount);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.txtAmount);
+            this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.btnSaveAndNew);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.btnCancel);
@@ -85,16 +97,50 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(634, 660);
+            this.panel1.Size = new System.Drawing.Size(930, 660);
             this.panel1.TabIndex = 0;
+            // 
+            // txtPackingAmount
+            // 
+            this.txtPackingAmount.Enabled = false;
+            this.txtPackingAmount.Location = new System.Drawing.Point(666, 252);
+            this.txtPackingAmount.Name = "txtPackingAmount";
+            this.txtPackingAmount.Size = new System.Drawing.Size(232, 33);
+            this.txtPackingAmount.TabIndex = 11;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(666, 209);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(172, 25);
+            this.label12.TabIndex = 16;
+            this.label12.Text = "Amount of packing";
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.Location = new System.Drawing.Point(666, 141);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(232, 33);
+            this.txtAmount.TabIndex = 10;
+            this.txtAmount.Text = "1";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(666, 100);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(79, 25);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Amount";
             // 
             // btnSaveAndNew
             // 
             this.btnSaveAndNew.BackColor = System.Drawing.Color.Bisque;
-            this.btnSaveAndNew.Location = new System.Drawing.Point(294, 22);
+            this.btnSaveAndNew.Location = new System.Drawing.Point(579, 22);
             this.btnSaveAndNew.Name = "btnSaveAndNew";
             this.btnSaveAndNew.Size = new System.Drawing.Size(166, 40);
-            this.btnSaveAndNew.TabIndex = 13;
+            this.btnSaveAndNew.TabIndex = 14;
             this.btnSaveAndNew.Text = "Save and New";
             this.btnSaveAndNew.UseVisualStyleBackColor = false;
             this.btnSaveAndNew.Click += new System.EventHandler(this.BtnSaveAndNew_Click);
@@ -102,10 +148,10 @@
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.LightGreen;
-            this.btnSave.Location = new System.Drawing.Point(168, 22);
+            this.btnSave.Location = new System.Drawing.Point(444, 22);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(110, 40);
-            this.btnSave.TabIndex = 10;
+            this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
@@ -113,10 +159,10 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.RosyBrown;
-            this.btnCancel.Location = new System.Drawing.Point(472, 22);
+            this.btnCancel.Location = new System.Drawing.Point(769, 22);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(129, 40);
-            this.btnCancel.TabIndex = 12;
+            this.btnCancel.TabIndex = 15;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
@@ -145,6 +191,7 @@
             this.comboPackingType.Name = "comboPackingType";
             this.comboPackingType.Size = new System.Drawing.Size(260, 33);
             this.comboPackingType.TabIndex = 8;
+            this.comboPackingType.SelectedIndexChanged += new System.EventHandler(this.EnableAmountPackingField);
             // 
             // txtWeight
             // 
@@ -228,9 +275,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(341, 319);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 25);
+            this.label8.Size = new System.Drawing.Size(109, 25);
             this.label8.TabIndex = 6;
-            this.label8.Text = "Weight";
+            this.label8.Text = "Weight (kg)";
             // 
             // label7
             // 
@@ -264,9 +311,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(37, 427);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 25);
+            this.label4.Size = new System.Drawing.Size(130, 25);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Price";
+            this.label4.Text = "Price (pr. unit)";
             // 
             // label3
             // 
@@ -295,12 +342,28 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
+            // labelTotalPrice
+            // 
+            this.labelTotalPrice.AutoSize = true;
+            this.labelTotalPrice.Location = new System.Drawing.Point(666, 319);
+            this.labelTotalPrice.Name = "labelTotalPrice";
+            this.labelTotalPrice.Size = new System.Drawing.Size(99, 25);
+            this.labelTotalPrice.TabIndex = 17;
+            this.labelTotalPrice.Text = "Total price";
+            // 
+            // txtTotalPrice
+            // 
+            this.txtTotalPrice.Location = new System.Drawing.Point(666, 363);
+            this.txtTotalPrice.Name = "txtTotalPrice";
+            this.txtTotalPrice.Size = new System.Drawing.Size(232, 33);
+            this.txtTotalPrice.TabIndex = 12;
+            // 
             // CreateProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(634, 660);
+            this.ClientSize = new System.Drawing.Size(930, 660);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -340,5 +403,12 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnSaveAndNew;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtPackingAmount;
+        private System.Windows.Forms.Label labelTotalPrice;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTotalPrice;
     }
 }
