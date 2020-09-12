@@ -6,6 +6,6 @@ namespace Alto_Valyrio.src.Inventory.Warehouses.Domain
 {
     public interface ICreator
     {
-        void Create(string name, int stateId, int addressStateId, int telephone, string email, string description);
+        void Create(string name, int stateId, int addressStateId, string address, int telephone, string email, string description);
     }
 }

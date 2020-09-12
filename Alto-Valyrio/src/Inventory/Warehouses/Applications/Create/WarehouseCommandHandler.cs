@@ -16,6 +16,7 @@ namespace Alto_Valyrio.src.Inventory.Warehouses.Applications.Create
             Creator.Create(command.GetName()
                 , command.GetStateId()
                 , command.GetAddressState()
+                , command.GetAddress()
                 , command.GetTelephone()
                 , command.GetEmail()
                 , command.GetDescription());

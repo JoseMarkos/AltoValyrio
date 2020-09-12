@@ -1,4 +1,5 @@
 ﻿using Alto_Valyrio.src.Inventory.Warehouses.Applications.Create;
+using Alto_Valyrio.src.Inventory.Warehouses.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,31 +53,45 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Warehouses
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            var telephone = int.Parse(txtTelephone.Text);
 
             try
             {
+                var telephone = int.Parse(txtTelephone.Text);
+
                 Command = new WarehouseCommand(txtName.Text, GetState()
-               , GetAddressState(), telephone, txtEmail.Text, txtDescription.Text);
+               , GetAddressState(), txtAddress.Text,  telephone, txtEmail.Text, txtDescription.Text);
 
                 Handler.Trigger(Command);
             }
             catch (Exception warehouseCreateException)
             {
-
-
+                labelError.Text = warehouseCreateException.Message;
             }
-           
+            this.Close();
         }
 
         private int GetState()
         {
-            return comboState.SelectedIndex;
+            int index = comboState.SelectedIndex;
+
+            if (comboState.SelectedIndex == -1)
+            {
+                throw new InvalidWarehouseStateException();
+            }
+
+            index++;
+            return index;
         }
 
         private int GetAddressState()
         {
-            return comboGTDepartment.SelectedIndex;
+            int index = comboGTDepartment.SelectedIndex;
+            if (index == -1)
+            {
+                throw new InvalidWarehouseAddressStateException();
+            }
+            index++;
+            return index;
         }
     }
 }

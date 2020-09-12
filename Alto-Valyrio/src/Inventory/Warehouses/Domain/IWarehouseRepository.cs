@@ -9,7 +9,10 @@ namespace Alto_Valyrio.src.Inventory.Warehouses.Domain
         void Save(Warehouse warehouse);
 
 #nullable enable
-        Warehouse? Search(int id);
+        Warehouse? Search(string name);
+
+        Warehouse? SearchLast();
+
 #nullable disable
     }
 }

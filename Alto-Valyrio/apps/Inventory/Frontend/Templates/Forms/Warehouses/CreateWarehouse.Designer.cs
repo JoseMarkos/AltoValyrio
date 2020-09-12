@@ -32,7 +32,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
+            this.labelError = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,7 +56,7 @@
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.btnCancel);
-            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.labelError);
             this.panel1.Controls.Add(this.txtDescription);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
@@ -112,15 +112,15 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // label8
+            // labelError
             // 
-            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label8.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.ForeColor = System.Drawing.Color.Maroon;
-            this.label8.Location = new System.Drawing.Point(47, 458);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(520, 40);
-            this.label8.TabIndex = 3;
+            this.labelError.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelError.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelError.ForeColor = System.Drawing.Color.Maroon;
+            this.labelError.Location = new System.Drawing.Point(47, 458);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(520, 40);
+            this.labelError.TabIndex = 3;
             // 
             // txtDescription
             // 
@@ -285,7 +285,7 @@
         private System.Windows.Forms.ComboBox comboState;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelError;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnSave;

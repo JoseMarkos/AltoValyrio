@@ -15,7 +15,6 @@ namespace Alto_Valyrio.src.Inventory.Users.Infrastructure.Persistance
             try
             {
                 return context.UserRoles.ToList();
-
             }
             catch (Exception)
             {

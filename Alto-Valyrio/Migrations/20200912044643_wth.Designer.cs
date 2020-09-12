@@ -4,14 +4,16 @@ using Alto_Valyrio.src.Inventory.Auth.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Alto_Valyrio.Migrations
 {
     [DbContext(typeof(AltoTestContext))]
-    partial class AltoTestContextModelSnapshot : ModelSnapshot
+    [Migration("20200912044643_wth")]
+    partial class wth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,85 +42,6 @@ namespace Alto_Valyrio.Migrations
                     b.HasIndex("PurchaseId");
 
                     b.ToTable("ProductPurchase");
-                });
-
-            modelBuilder.Entity("Alto_Valyrio.src.Inventory.Products.Domain.Product", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Brand")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ExpirationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("LocationId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("PackingTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<bool?>("Refrigerated")
-                        .HasColumnType("bit");
-
-                    b.Property<double?>("Weight")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("LocationId");
-
-                    b.HasIndex("PackingTypeId");
-
-                    b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("Alto_Valyrio.src.Inventory.Products.Domain.ProductCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProductCategories");
-                });
-
-            modelBuilder.Entity("Alto_Valyrio.src.Inventory.Products.Domain.ProductPacking", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProductPackingTypes");
                 });
 
             modelBuilder.Entity("Alto_Valyrio.src.Inventory.Purchases.Domain.Purchase", b =>
@@ -275,21 +198,6 @@ namespace Alto_Valyrio.Migrations
                     b.HasOne("Alto_Valyrio.src.Inventory.Purchases.Domain.Purchase", null)
                         .WithMany("ProductPurchases")
                         .HasForeignKey("PurchaseId");
-                });
-
-            modelBuilder.Entity("Alto_Valyrio.src.Inventory.Products.Domain.Product", b =>
-                {
-                    b.HasOne("Alto_Valyrio.src.Inventory.Products.Domain.ProductCategory", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId");
-
-                    b.HasOne("Alto_Valyrio.src.Inventory.Warehouses.Domain.Warehouse", "Location")
-                        .WithMany()
-                        .HasForeignKey("LocationId");
-
-                    b.HasOne("Alto_Valyrio.src.Inventory.Products.Domain.ProductPacking", "PackingType")
-                        .WithMany()
-                        .HasForeignKey("PackingTypeId");
                 });
 
             modelBuilder.Entity("Alto_Valyrio.src.Inventory.Purchases.Domain.Purchase", b =>

@@ -1,8 +1,7 @@
 ﻿using Alto_Valyrio.src.Inventory.Auth.Infrastructure.Persistance;
 using Alto_Valyrio.src.Inventory.Warehouses.Domain;
+using System.Linq;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Alto_Valyrio.src.Inventory.Warehouses.Infrastructure.Persistance
 {
@@ -15,17 +14,23 @@ namespace Alto_Valyrio.src.Inventory.Warehouses.Infrastructure.Persistance
             context.Warehouses.Add(warehouse);
             context.SaveChanges();
         }
-
-        public Warehouse Search(int id)
+#nullable enable
+        public Warehouse? Search(string name)
         {
             using var context = new AltoTestContext();
 
-           /* var match = from warehouse in context.Warehouses
-                   where warehouse.Id == id
-                   select warehouse;
-           */
+            var match = from warehouse in context.Warehouses
+                        where warehouse.Name == name
+                        select warehouse;
 
-            return new Warehouse();
+            return match.FirstOrDefault();
         }
+
+        public Warehouse? SearchLast()
+        {
+            using var context = new AltoTestContext();
+            return context.Warehouses.Last();
+        }
+#nullable disable
     }
 }
