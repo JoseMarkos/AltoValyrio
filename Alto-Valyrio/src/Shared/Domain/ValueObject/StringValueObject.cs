@@ -22,5 +22,7 @@ namespace Alto_Valyrio.src.Shared.Domain.ValueObject
         {
             return this.value;
         }
+
+
     }
 }

@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSaveAndNew = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.labelError = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -54,7 +54,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.btnSave);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btnSaveAndNew);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.labelError);
             this.panel1.Controls.Add(this.txtDescription);
@@ -89,16 +89,17 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
-            // button2
+            // btnSaveAndNew
             // 
-            this.button2.BackColor = System.Drawing.Color.Bisque;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(287, 32);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(149, 38);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Save and new";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnSaveAndNew.BackColor = System.Drawing.Color.Bisque;
+            this.btnSaveAndNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveAndNew.Location = new System.Drawing.Point(287, 32);
+            this.btnSaveAndNew.Name = "btnSaveAndNew";
+            this.btnSaveAndNew.Size = new System.Drawing.Size(149, 38);
+            this.btnSaveAndNew.TabIndex = 8;
+            this.btnSaveAndNew.Text = "Save and new";
+            this.btnSaveAndNew.UseVisualStyleBackColor = false;
+            this.btnSaveAndNew.Click += new System.EventHandler(this.BtnSaveAndNew_Click);
             // 
             // btnCancel
             // 
@@ -253,7 +254,6 @@
             this.ClientSize = new System.Drawing.Size(606, 528);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "CreateWarehouse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -287,7 +287,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label labelError;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSaveAndNew;
         private System.Windows.Forms.Button btnSave;
     }
 }

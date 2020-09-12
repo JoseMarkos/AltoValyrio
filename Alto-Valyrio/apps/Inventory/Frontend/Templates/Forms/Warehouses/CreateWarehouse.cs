@@ -53,7 +53,6 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Warehouses
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-
             try
             {
                 var telephone = int.Parse(txtTelephone.Text);
@@ -62,12 +61,13 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Warehouses
                , GetAddressState(), txtAddress.Text,  telephone, txtEmail.Text, txtDescription.Text);
 
                 Handler.Trigger(Command);
+
+                this.Close();
             }
             catch (Exception warehouseCreateException)
             {
                 labelError.Text = warehouseCreateException.Message;
             }
-            this.Close();
         }
 
         private int GetState()
@@ -92,6 +92,42 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Warehouses
             }
             index++;
             return index;
+        }
+
+        private void BtnSaveAndNew_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var telephone = int.Parse(txtTelephone.Text);
+
+                Command = new WarehouseCommand(txtName.Text, GetState()
+               , GetAddressState(), txtAddress.Text, telephone, txtEmail.Text, txtDescription.Text);
+
+                Handler.Trigger(Command);
+
+                CleanInputs();
+            }
+            catch (Exception warehouseCreateException)
+            {
+                labelError.Text = warehouseCreateException.Message;
+            }
+        }
+
+        private void CleanInputs()
+        {
+            foreach (var item in panel1.Controls)
+            {
+                bool isTextBox = item.GetType().ToString() == "System.Windows.Forms.TextBox";
+
+                if (isTextBox)
+                {
+                    var txt = (TextBox)item;
+
+                    txt.Text = String.Empty;
+                }
+            }
+
+            labelError.Text = String.Empty;
         }
     }
 }

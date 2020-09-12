@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 using Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Customer.CreateWarehouses;
+using Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Customer.CreateProducts;
 
 namespace Alto_Valyrio.apps.Inventory.Backend
 {
@@ -14,10 +15,13 @@ namespace Alto_Valyrio.apps.Inventory.Backend
     {
         public static Dictionary<string, object> GetRoutes()
         {
-            var dictionary = new Dictionary<string, object>();
-            dictionary.Add("Login", new LoginController());
-            dictionary.Add("CreateUser", new CreateUserController());
-            dictionary.Add("CreateWarehouse", new CreateWarehousesController());
+            var dictionary = new Dictionary<string, object>
+            {
+                { "Login", new LoginController() },
+                { "CreateUser", new CreateUserController() },
+                { "CreateWarehouse", new CreateWarehousesController() },
+                { "CreateProduct", new CreateProductsController() }
+            };
 
             return dictionary;
         }
