@@ -2,6 +2,8 @@
 using Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products;
 using Alto_Valyrio.src.Inventory.Products.Applications.Create;
 using Alto_Valyrio.src.Inventory.Products.Infrastructure.Persistance;
+using Alto_Valyrio.src.Inventory.ProductsWarehouses.Applications.Create;
+using Alto_Valyrio.src.Inventory.ProductsWarehouses.Infrastructure.Persistnace;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +33,9 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Customer.CreatePro
                              select x.Name;
 
             var createProductCategoryController = Routes.GetRoutes()["CreateProductCategory"];
+            var productsWarehouseRepository = new SQLServerProductsWarehouseRepository();
+            var productsWarehouseCreator = new ProductsWarehouseCreator(productsWarehouseRepository);
+            var productsWarehouseCommandHandler = new ProductsWarehouseCommandHandler(productsWarehouseCreator);
 
             var data = new Dictionary<string, object>
             {
@@ -38,7 +43,8 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Customer.CreatePro
                 { "categories", categories.ToList() },
                 { "locations", locations.ToList() },
                 { "packingTypes", packingTypes.ToList() },
-                { "createProductCategoriesController", createProductCategoryController }
+                { "createProductCategoriesController", createProductCategoryController },
+                { "productsWarehouseCreateHandler", productsWarehouseCommandHandler }
             };
             return new CreateProduct(data);
         }

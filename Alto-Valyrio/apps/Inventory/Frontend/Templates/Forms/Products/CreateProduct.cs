@@ -11,18 +11,22 @@ using Alto_Valyrio.src.Inventory.Products.Domain;
 using Alto_Valyrio.apps.Inventory.Frontend.src.Packing;
 using Alto_Valyrio.src.Inventory.Products.Applications.CreateCategory;
 using Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Customer.CreateProducts;
+using Alto_Valyrio.src.Inventory.ProductsWarehouses.Applications.Create;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
 {
     public partial class CreateProduct : Form
     {
         private ProductCommand Command;
+        private ProductsWarehouseCommand ProductsWarehouseCommand;
         private readonly ProductCommandHandler CreateHandler;
         private readonly List<string> Categories;
         private readonly List<string> Locations;
         private readonly List<string> PackingTypes;
         private readonly int PackingSingleIndex = 0;
         private readonly CreateProductCategoriesController ProductCategoryController;
+        private readonly ProductsWarehouseCommandHandler ProductsWarehouseCreateHandler;
 
         public CreateProduct(Dictionary<string, object> data)
         {
@@ -32,7 +36,7 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
             Locations = (List<string>)data["locations"];
             PackingTypes = (List<string>)data["packingTypes"];
             ProductCategoryController = (CreateProductCategoriesController)data["createProductCategoriesController"];
-
+            ProductsWarehouseCreateHandler = (ProductsWarehouseCommandHandler)data["productsWarehouseCreateHandler"];
             PopulateComboRefrigerated();
             PopulateCategories();
             PopulateLocations();
@@ -112,6 +116,8 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
             try
             {
                 Create();
+
+
 
                 CleanInputs();
             }
@@ -241,6 +247,11 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
             {
                 labelError.Text = createProductCategoryException.Message;
             }
+        }
+
+        private void CreateProductsWarehouse()
+        {
+            ProductsWarehouseCommand = new ProductsWarehouseCommand(1, GetLocationId());
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Alto_Valyrio.src.Inventory.ProductsWarehouses.Infrastructure.Persistnace
 {
-    public class SQLServerProductsWarehouseRepository
+    public class SQLServerProductsWarehouseRepository : IProductsWarehouseRepository
     {
         public void Save(ProductsWarehouse productsWarehouse)
         {
