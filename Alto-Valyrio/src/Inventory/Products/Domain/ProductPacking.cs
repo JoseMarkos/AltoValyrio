@@ -11,7 +11,7 @@ namespace Alto_Valyrio.src.Inventory.Products.Domain
         {
             EnsureValuoIsNotEmpty(this.GetType().Name, value);
 
-            this.value = value;
+            this.value = value + 1;
         }
 
         public void EnsureValuoIsNotEmpty(string fieldName, int value)
