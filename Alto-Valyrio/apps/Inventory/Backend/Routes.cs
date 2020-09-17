@@ -20,7 +20,8 @@ namespace Alto_Valyrio.apps.Inventory.Backend
                 { "Login", new LoginController() },
                 { "CreateUser", new CreateUserController() },
                 { "CreateWarehouse", new CreateWarehousesController() },
-                { "CreateProduct", new CreateProductsController() }
+                { "CreateProduct", new CreateProductsController() },
+                { "CreateProductCategory", new CreateProductCategoriesController() }
             };
 
             return dictionary;

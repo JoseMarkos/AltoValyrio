@@ -59,11 +59,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.BtnAddCategory = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.BtnAddCategory);
             this.panel1.Controls.Add(this.txtTotalPrice);
             this.panel1.Controls.Add(this.labelTotalPrice);
             this.panel1.Controls.Add(this.txtPackingAmount);
@@ -361,6 +363,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
+            // BtnAddCategory
+            // 
+            this.BtnAddCategory.Location = new System.Drawing.Point(284, 252);
+            this.BtnAddCategory.Name = "BtnAddCategory";
+            this.BtnAddCategory.Size = new System.Drawing.Size(35, 33);
+            this.BtnAddCategory.TabIndex = 18;
+            this.BtnAddCategory.Text = "+";
+            this.BtnAddCategory.UseVisualStyleBackColor = true;
+            this.BtnAddCategory.Click += new System.EventHandler(this.BtnAddCategory_Click);
+            // 
             // CreateProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
@@ -412,5 +424,6 @@
         private System.Windows.Forms.TextBox txtPackingAmount;
         private System.Windows.Forms.Label labelTotalPrice;
         private System.Windows.Forms.TextBox txtTotalPrice;
+        private System.Windows.Forms.Button BtnAddCategory;
     }
 }

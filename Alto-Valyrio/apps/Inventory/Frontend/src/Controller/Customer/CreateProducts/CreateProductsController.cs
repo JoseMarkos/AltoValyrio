@@ -30,12 +30,15 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Customer.CreatePro
             var packingTypes = from x in packingTypesEntities
                              select x.Name;
 
+            var createProductCategoryController = Routes.GetRoutes()["CreateProductCategory"];
+
             var data = new Dictionary<string, object>
             {
                 { "createHandler", handler },
                 { "categories", categories.ToList() },
                 { "locations", locations.ToList() },
-                { "packingTypes", packingTypes.ToList() }
+                { "packingTypes", packingTypes.ToList() },
+                { "createProductCategoriesController", createProductCategoryController }
             };
             return new CreateProduct(data);
         }

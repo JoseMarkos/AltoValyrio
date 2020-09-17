@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200917034912_adding-productsWarehouses.cs" />
+    <Compile Remove="Migrations\20200917034912_adding-productsWarehouses.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="apps\Inventory\Frontend\src\Controller\Customer\Dashboard\" />
     <Folder Include="apps\Inventory\Frontend\Templates\Partials\" />
     <Folder Include="src\Inventory\ProductPurchases\Infrastructure\Persistance\" />

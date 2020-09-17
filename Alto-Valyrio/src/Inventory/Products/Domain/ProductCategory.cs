@@ -9,12 +9,12 @@ namespace Alto_Valyrio.src.Inventory.Products.Domain
     {
         public ProductCategory(int value) : base(value)
         {
-            EnsureValuoIsNotEmpty(this.GetType().Name, value);
+            EnsureIsNotEmpty(this.GetType().Name, value);
 
-            this.value = value;
+            this.value = value + 1;
         }
 
-        public void EnsureValuoIsNotEmpty(string fieldName, int value)
+        public void EnsureIsNotEmpty(string fieldName, int value)
         {
             if (value == -1)
             {

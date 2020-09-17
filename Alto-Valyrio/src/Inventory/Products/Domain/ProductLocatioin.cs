@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Alto_Valyrio.src.Inventory.Products.Domain
 {
@@ -11,8 +12,9 @@ namespace Alto_Valyrio.src.Inventory.Products.Domain
         {
             EnsureValuoIsNotEmpty(this.GetType().Name, value);
 
-            this.value = value;
-        }
+            this.value = value + 1;
+            MessageBox.Show(this.value.ToString());
+        } 
 
         public void EnsureValuoIsNotEmpty(string fieldName, int value)
         {

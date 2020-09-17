@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using Alto_Valyrio.src.Shared.apps.Frontend.Templates;
 using Alto_Valyrio.src.Inventory.Products.Domain;
 using Alto_Valyrio.apps.Inventory.Frontend.src.Packing;
+using Alto_Valyrio.src.Inventory.Products.Applications.CreateCategory;
+using Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Customer.CreateProducts;
 
 namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
 {
@@ -20,6 +22,7 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
         private readonly List<string> Locations;
         private readonly List<string> PackingTypes;
         private readonly int PackingSingleIndex = 0;
+        private readonly CreateProductCategoriesController ProductCategoryController;
 
         public CreateProduct(Dictionary<string, object> data)
         {
@@ -28,6 +31,7 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
             Categories = (List<string>)data["categories"];
             Locations = (List<string>)data["locations"];
             PackingTypes = (List<string>)data["packingTypes"];
+            ProductCategoryController = (CreateProductCategoriesController)data["createProductCategoriesController"];
 
             PopulateComboRefrigerated();
             PopulateCategories();
@@ -42,9 +46,20 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-                Create();
+            //try
+            //{
+            //    Create();
 
-                this.Close();
+            //    this.Close();
+            //}
+            //catch (Exception createProductException)
+            //{
+            //    labelError.Text = createProductException.Message;
+            //}
+
+            Create();
+
+            this.Close();
         }
 
         private void Create()
@@ -53,7 +68,7 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
             decimal price = decimal.Parse(txtPrice.Text);
             decimal totalPrice = decimal.Parse(txtTotalPrice.Text);
 
-            Command = new ProductCommand(txtName.Text, txtBrand.Text, GetCategoryId(), GetPackingTypeId(), price, GetRefrigeratedId(), dateExpiration.Value, GetLocationId(), weight, txtDescription.Text, totalPrice);
+            Command = new ProductCommand(txtName.Text, txtBrand.Text, GetCategoryId(), GetPackingTypeId(), price, GetRefrigeratedId(), dateExpiration.Value, weight, txtDescription.Text, totalPrice);
             CreateHandler.Trigger(Command);
         }
 
@@ -213,6 +228,19 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
         private void MakeCalculationEvent(object sender, EventArgs e)
         {
             MakeCalculation();
+        }
+
+        private void BtnAddCategory_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var form = ProductCategoryController.Show();
+                form.ShowDialog();
+            }
+            catch (Exception createProductCategoryException)
+            {
+                labelError.Text = createProductCategoryException.Message;
+            }
         }
     }
 }

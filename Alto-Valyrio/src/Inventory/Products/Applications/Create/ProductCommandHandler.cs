@@ -22,7 +22,7 @@ namespace Alto_Valyrio.src.Inventory.Products.Applications.Create
             var productPacking = new ProductPacking(command.GetPackingId);
 
             Creator.Create(productName, productBrand, productCategory, productPacking, command.GetPrice, command.GetRefrigerated
-                , command.GetExpirationDate, command.GetLocationId, command.GetWeight, command.GetDescription, command.GetTotalPrice);
+                , command.GetExpirationDate, command.GetWeight, command.GetDescription, command.GetTotalPrice);
         }
     }
 }
