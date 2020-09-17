@@ -7,8 +7,16 @@ using System.Text;
 
 namespace Alto_Valyrio.src.Inventory.Products.Infrastructure.Persistance
 {
-    public class SQLServerCategoryRepository
+    public class SQLServerCategoryRepository : IProductCategoryRepository
     {
+        public void Save(Category category)
+        {
+            using var context = new AltoTestContext();
+
+            context.ProductCategories.Add(category);
+            context.SaveChanges();
+        }
+
         public ICollection<Category> SearchAll()
         {
             using var context = new AltoTestContext();

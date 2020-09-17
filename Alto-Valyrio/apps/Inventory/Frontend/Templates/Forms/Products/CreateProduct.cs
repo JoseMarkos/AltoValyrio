@@ -19,7 +19,7 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
         private readonly List<string> Categories;
         private readonly List<string> Locations;
         private readonly List<string> PackingTypes;
-        private readonly int PackingSingleIndex = 1;
+        private readonly int PackingSingleIndex = 0;
 
         public CreateProduct(Dictionary<string, object> data)
         {
@@ -42,16 +42,9 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
                 Create();
 
                 this.Close();
-            }
-            catch (Exception createProductException)
-            {
-                labelError.Text = createProductException.Message;
-            }
         }
 
         private void Create()

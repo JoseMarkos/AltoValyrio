@@ -30,6 +30,10 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms
 
                 var dictionary = Routes.GetRoutes();
                 var controller = (IController)dictionary["CreateUser"];
+                var form  = controller.Show();
+                this.Hide();
+
+                form.Show();
             }
             catch (Exception AuthExeption)
             {

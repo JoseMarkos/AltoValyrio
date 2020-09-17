@@ -95,5 +95,10 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms
         {
             return comboRoles.SelectedIndex;
         }
+
+        private void Administrator_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

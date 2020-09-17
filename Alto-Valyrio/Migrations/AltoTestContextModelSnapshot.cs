@@ -94,7 +94,7 @@ namespace Alto_Valyrio.Migrations
                     b.Property<DateTime?>("ExpirationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("LocationId")
+                    b.Property<int>("LocationId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -291,7 +291,9 @@ namespace Alto_Valyrio.Migrations
 
                     b.HasOne("Alto_Valyrio.src.Inventory.Warehouses.Domain.Warehouse", "Location")
                         .WithMany()
-                        .HasForeignKey("LocationId");
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Alto_Valyrio.src.Inventory.Products.Domain.Packing", "PackingType")
                         .WithMany()

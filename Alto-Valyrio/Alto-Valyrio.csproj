@@ -8,15 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200910224733_warehosue-beta.cs" />
-    <Compile Remove="Migrations\20200910224733_warehosue-beta.Designer.cs" />
-    <Compile Remove="Migrations\20200912044511_wth.cs" />
-    <Compile Remove="Migrations\20200912044511_wth.Designer.cs" />
-    <Compile Remove="Migrations\20200912053413_products-beta2.cs" />
-    <Compile Remove="Migrations\20200912053413_products-beta2.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="apps\Inventory\Frontend\src\Controller\Customer\Dashboard\" />
     <Folder Include="apps\Inventory\Frontend\Templates\Partials\" />
     <Folder Include="src\Inventory\ProductPurchases\Infrastructure\Persistance\" />

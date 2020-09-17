@@ -23,15 +23,15 @@ namespace Alto_Valyrio.src.Inventory.Products.Domain
 #nullable disable
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
+        public int LocationId { get; set; }
+        public Warehouse Location { get; set; }
 #nullable enable
         public bool? Refrigerated { get; set; }
         public DateTime? ExpirationDate { get; set; }
-        public int? LocationId { get; set; }
-        public Warehouse? Location { get; set; }
+
         public double? Weight { get; set; }
         public int? PackingTypeId { get; set; }
         public Packing? PackingType { get; set; }
-
         public string? Description { get; set; }
 #nullable disable
         [Column(TypeName = "decimal(18,2)")]

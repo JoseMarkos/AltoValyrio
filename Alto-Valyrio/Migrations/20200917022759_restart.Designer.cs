@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Alto_Valyrio.Migrations
 {
     [DbContext(typeof(AltoTestContext))]
-    [Migration("20200912213404_test3")]
-    partial class test3
+    [Migration("20200917022759_restart")]
+    partial class restart
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -96,7 +96,7 @@ namespace Alto_Valyrio.Migrations
                     b.Property<DateTime?>("ExpirationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("LocationId")
+                    b.Property<int>("LocationId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -293,7 +293,9 @@ namespace Alto_Valyrio.Migrations
 
                     b.HasOne("Alto_Valyrio.src.Inventory.Warehouses.Domain.Warehouse", "Location")
                         .WithMany()
-                        .HasForeignKey("LocationId");
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Alto_Valyrio.src.Inventory.Products.Domain.Packing", "PackingType")
                         .WithMany()
