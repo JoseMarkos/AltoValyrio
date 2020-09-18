@@ -30,7 +30,7 @@ namespace Alto_Valyrio.src.Inventory.Products.Applications.Create
                 Weight = weight,
                 Description = description,
                 TotalPrice = totalPrice,
-                Amount = amout;
+                Amount = amout
             };
 
             Repository.Save(product);
