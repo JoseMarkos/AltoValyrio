@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTotalAmount = new System.Windows.Forms.TextBox();
             this.txtTotalPrice = new System.Windows.Forms.TextBox();
             this.labelTotalPrice = new System.Windows.Forms.Label();
             this.txtPackingAmount = new System.Windows.Forms.TextBox();
@@ -64,6 +65,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtTotalAmount);
             this.panel1.Controls.Add(this.txtTotalPrice);
             this.panel1.Controls.Add(this.labelTotalPrice);
             this.panel1.Controls.Add(this.txtPackingAmount);
@@ -100,6 +102,15 @@
             this.panel1.Size = new System.Drawing.Size(930, 660);
             this.panel1.TabIndex = 0;
             // 
+            // txtTotalAmount
+            // 
+            this.txtTotalAmount.Location = new System.Drawing.Point(666, 464);
+            this.txtTotalAmount.Name = "txtTotalAmount";
+            this.txtTotalAmount.Size = new System.Drawing.Size(232, 33);
+            this.txtTotalAmount.TabIndex = 18;
+            this.txtTotalAmount.Text = "1";
+            this.txtTotalAmount.Visible = false;
+            // 
             // txtTotalPrice
             // 
             this.txtTotalPrice.Location = new System.Drawing.Point(666, 363);
@@ -123,7 +134,8 @@
             this.txtPackingAmount.Name = "txtPackingAmount";
             this.txtPackingAmount.Size = new System.Drawing.Size(232, 33);
             this.txtPackingAmount.TabIndex = 11;
-            this.txtPackingAmount.TextChanged += new System.EventHandler(this.TotalPricePackingCalculation);
+            this.txtPackingAmount.TextChanged += new System.EventHandler(this.UpdateAmount);
+            this.txtPackingAmount.TextChanged += new System.EventHandler(this.MakeCalculationEvent);
             // 
             // label12
             // 
@@ -142,6 +154,7 @@
             this.txtAmount.TabIndex = 10;
             this.txtAmount.Text = "1";
             this.txtAmount.TextChanged += new System.EventHandler(this.MakeCalculationEvent);
+            this.txtAmount.TextChanged += new System.EventHandler(this.UpdateAmount);
             // 
             // label11
             // 
@@ -247,7 +260,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(241, 33);
             this.txtPrice.TabIndex = 3;
-            this.txtPrice.TextChanged += new System.EventHandler(this.TotalPriceSingleCalculation);
+            this.txtPrice.TextChanged += new System.EventHandler(this.MakeCalculationEvent);
             // 
             // txtBrand
             // 
@@ -412,5 +425,6 @@
         private System.Windows.Forms.TextBox txtPackingAmount;
         private System.Windows.Forms.Label labelTotalPrice;
         private System.Windows.Forms.TextBox txtTotalPrice;
+        private System.Windows.Forms.TextBox txtTotalAmount;
     }
 }

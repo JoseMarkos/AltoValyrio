@@ -59,8 +59,9 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
             double weight = double.Parse(txtWeight.Text);
             decimal price = decimal.Parse(txtPrice.Text);
             decimal totalPrice = decimal.Parse(txtTotalPrice.Text);
+            int amount = int.Parse(txtTotalAmount.Text);
 
-            Command = new ProductCommand(txtName.Text, txtBrand.Text, GetCategoryId(), GetPackingTypeId(), price, GetRefrigeratedId(), dateExpiration.Value, GetLocationId(), weight, txtDescription.Text, totalPrice);
+            Command = new ProductCommand(txtName.Text, txtBrand.Text, GetCategoryId(), GetPackingTypeId(), price, GetRefrigeratedId(), dateExpiration.Value, GetLocationId(), weight, txtDescription.Text, totalPrice, amount);
             CreateHandler.Trigger(Command);
         }
 
@@ -220,6 +221,26 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Products
         private void MakeCalculationEvent(object sender, EventArgs e)
         {
             MakeCalculation();
+        }
+
+        private void UpdateAmount(object sender, EventArgs e)
+        {
+            try
+            {
+                int singleAmount    = int.Parse(txtAmount.Text);
+                int value           = singleAmount;
+
+                if (txtPackingAmount.Text != String.Empty)
+                {
+                    value = int.Parse(txtPackingAmount.Text) * singleAmount;
+                }
+
+                txtTotalAmount.Text = value.ToString();
+            }
+            catch (Exception updateAmountException)
+            {
+                labelError.Text = updateAmountException.Message;
+            }
         }
     }
 }

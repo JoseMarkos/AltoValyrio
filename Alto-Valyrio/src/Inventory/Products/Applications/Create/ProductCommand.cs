@@ -18,10 +18,12 @@ namespace Alto_Valyrio.src.Inventory.Products.Applications.Create
         private readonly double Weight;
         private readonly string Description;
         private readonly decimal TotalPrice;
+        private readonly int Amount;
 
 
         public ProductCommand(string name, string brand, int categoryId, int packingId, decimal price
-            , bool refrigerated, DateTime expirationDate, int locationId, double weight, string description, decimal totalPrice)
+            , bool refrigerated, DateTime expirationDate, int locationId, double weight
+            , string description, decimal totalPrice, int amount)
         {
             Name = name;
             Brand = brand;
@@ -34,6 +36,7 @@ namespace Alto_Valyrio.src.Inventory.Products.Applications.Create
             Weight = weight;
             Description = description;
             TotalPrice = totalPrice;
+            Amount = amount;
         }
 
         public string GetName => Name;
@@ -56,5 +59,7 @@ namespace Alto_Valyrio.src.Inventory.Products.Applications.Create
 
         public string GetDescription => Description;
         public decimal GetTotalPrice => TotalPrice;
+
+        public int GetAmount => Amount;
     }
 }
