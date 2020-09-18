@@ -14,5 +14,10 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Customer
         {
             InitializeComponent();
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }
