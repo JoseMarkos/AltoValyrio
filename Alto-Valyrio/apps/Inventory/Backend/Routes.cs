@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Customer.CreateWarehouses;
 using Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Customer.CreateProducts;
+using Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Customer.Main;
 
 namespace Alto_Valyrio.apps.Inventory.Backend
 {
@@ -21,7 +22,8 @@ namespace Alto_Valyrio.apps.Inventory.Backend
                 { "CreateUser", new CreateUserController() },
                 { "CreateWarehouse", new CreateWarehousesController() },
                 { "CreateProduct", new CreateProductsController() },
-                { "CreateProductCategory", new CreateProductCategoriesController() }
+                { "CreateProductCategory", new CreateProductCategoriesController() },
+                { "CustomerDashboard", new DashboardController() }
             };
 
             return dictionary;

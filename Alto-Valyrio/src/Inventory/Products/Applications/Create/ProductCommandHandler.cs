@@ -23,7 +23,7 @@ namespace Alto_Valyrio.src.Inventory.Products.Applications.Create
             var productLocation = new ProductLocation(command.GetLocationId);
 
             Creator.Create(productName, productBrand, productCategory, productPacking, command.GetPrice, command.GetRefrigerated
-                , command.GetExpirationDate, productLocation, command.GetWeight, command.GetDescription, command.GetTotalPrice);
+                , command.GetExpirationDate, productLocation, command.GetWeight, command.GetDescription, command.GetTotalPrice, command.GetAmount);
         }
     }
 }

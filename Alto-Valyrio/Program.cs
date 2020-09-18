@@ -21,7 +21,7 @@ namespace Alto_Valyrio
             Application.SetCompatibleTextRenderingDefault(false);
 
             var dictionary = Routes.GetRoutes();
-            var controller = (IController)dictionary["CreateProduct"];
+            var controller = (IController)dictionary["CustomerDashboard"];
             Application.Run(controller.Show());
         }
     }
