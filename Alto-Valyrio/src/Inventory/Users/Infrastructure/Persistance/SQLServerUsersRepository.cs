@@ -39,6 +39,15 @@ namespace Alto_Valyrio.src.Inventory.Users.Infrastructure.Persistance
             context.SaveChanges();
         }
 
+        public User Search(string name)
+        {
+            using var context = new AltoTestContext();
+            var match = from user in context.Users
+                       where user.Username == name
+                       select user;
+            return match.FirstOrDefault();
+        }
+
         public ICollection<User> SearchAll()
         {
             using var context = new AltoTestContext();

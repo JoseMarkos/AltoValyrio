@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Folder Include="apps\Inventory\Frontend\Templates\Partials\" />
+    <Folder Include="src\Inventory\Auth\Applications\hl\" />
     <Folder Include="src\Inventory\ProductPurchases\Infrastructure\Persistance\" />
     <Folder Include="src\Inventory\Purchases\Infrastructure\Persistance\" />
   </ItemGroup>

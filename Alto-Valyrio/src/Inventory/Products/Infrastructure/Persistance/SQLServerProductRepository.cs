@@ -2,6 +2,7 @@
 using Alto_Valyrio.src.Inventory.Products.Domain;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Alto_Valyrio.src.Inventory.Products.Infrastructure.Persistance
@@ -18,7 +19,11 @@ namespace Alto_Valyrio.src.Inventory.Products.Infrastructure.Persistance
 
         public Product Search(string name)
         {
-            throw new NotImplementedException();
+            using var context = new AltoTestContext();
+
+            return  context.Products
+                       .Where(b => b.Name == name)
+                       .FirstOrDefault();
         }
     }
 }

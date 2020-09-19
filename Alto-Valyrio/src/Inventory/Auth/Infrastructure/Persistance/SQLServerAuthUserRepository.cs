@@ -20,7 +20,6 @@ namespace Alto_Valyrio.src.Inventory.Auth.Infrastructure.Persistance
                 var authPassword = new AuthPassword(user.Password);
 
                 return new AuthUser(authUsername, authPassword);
-
             }
             catch (Exception)
             {

@@ -16,13 +16,16 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Customer.Main
             var menuItems = new Dictionary<string, IController>
             {
                 { "Add a register", (IController)routes["CreateProduct"] },
-                { "Consult a register", (IController)routes["CreateProduct"] },
+                { "Consult a register", (IController)routes["ConsultProduct"] },
                 { "Move a register", (IController)routes["CreateProduct"] },
             };
 
+
+
             var data = new Dictionary<string, object>
             {
-                { "menuItems", menuItems }
+                { "menuItems", menuItems },
+                { "login", (IController)routes["Login"] }
             };
 
             var dashboard = new Dashboard(data);

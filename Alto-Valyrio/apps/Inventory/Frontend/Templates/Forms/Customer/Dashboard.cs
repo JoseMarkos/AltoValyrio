@@ -13,10 +13,12 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Customer
     public partial class Dashboard : Form
     {
         private readonly Dictionary<string, IController> MenuItems;
+        private readonly IController Login;
 
         public Dashboard(Dictionary<string, object> data)
         {
             MenuItems = (Dictionary<string, IController>)data["menuItems"];
+            Login = (IController)data["login"];
 
             InitializeComponent();
             PopulateRegistrosMenu();
@@ -49,6 +51,13 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms.Customer
             var form        = controller.Show();
 
             form.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var form = Login.Show();
+            form.Show();
+            this.Close();
         }
     }
 }

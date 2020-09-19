@@ -2,6 +2,9 @@
 using Alto_Valyrio.apps.Inventory.Frontend.Templates.Forms;
 using Alto_Valyrio.src.Inventory.Auth.Applications;
 using Alto_Valyrio.src.Inventory.Auth.Infrastructure.Persistance;
+using Alto_Valyrio.src.Inventory.Users.Applications.SearchRole;
+using Alto_Valyrio.src.Inventory.Users.Domain;
+using Alto_Valyrio.src.Inventory.Users.Infrastructure.Persistance;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,9 +21,21 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Auth
             SQLServerAuthUserRepository repository = new SQLServerAuthUserRepository();
             UserAuthenticator authenticator = new UserAuthenticator(repository);
             AuthenticateUserCommandHandler handler =  new AuthenticateUserCommandHandler(authenticator);
-            
-            var data = new Dictionary<string, object>();
-            data.Add("handler", handler);
+            var dashboards = new Dictionary<Roles, IController> {
+                { Roles.Administrator, (IController)Routes.GetRoutes()["CreateUser"] },
+                { Roles.Customer, (IController)Routes.GetRoutes()["CustomerDashboard"] }
+            };
+
+            var userRepository = new SQLServerUsersRepository();
+            var userRoleSearcher = new UserRoleSearcher(userRepository);
+            var userRoleCommandHandler = new UserRoleCommandHandler(userRoleSearcher);
+
+            var data = new Dictionary<string, object>
+            {
+                { "handler", handler },
+                { "dashboards", dashboards },
+                { "userRoleCommandHandler", userRoleCommandHandler }
+            };
 
             login = new Login(data);
         }

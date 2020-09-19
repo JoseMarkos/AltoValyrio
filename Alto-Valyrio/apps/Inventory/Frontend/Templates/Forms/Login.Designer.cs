@@ -30,11 +30,11 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.labelError = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.labelError = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +63,16 @@
             this.panel2.Size = new System.Drawing.Size(279, 285);
             this.panel2.TabIndex = 1;
             // 
+            // labelError
+            // 
+            this.labelError.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelError.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelError.ForeColor = System.Drawing.Color.Maroon;
+            this.labelError.Location = new System.Drawing.Point(0, 239);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(279, 40);
+            this.labelError.TabIndex = 3;
+            // 
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -85,7 +95,7 @@
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // txtPassword
             // 
@@ -102,18 +112,9 @@
             this.txtUsername.Size = new System.Drawing.Size(279, 33);
             this.txtUsername.TabIndex = 0;
             // 
-            // labelError
-            // 
-            this.labelError.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelError.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelError.ForeColor = System.Drawing.Color.Maroon;
-            this.labelError.Location = new System.Drawing.Point(0, 239);
-            this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(279, 40);
-            this.labelError.TabIndex = 3;
-            // 
             // Login
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(490, 422);
@@ -123,6 +124,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Exit);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

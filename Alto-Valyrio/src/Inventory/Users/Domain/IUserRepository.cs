@@ -7,5 +7,7 @@ namespace Alto_Valyrio.src.Inventory.Users.Domain
         void Save(User customer);
         ICollection<User> SearchAll();
         ICollection<User> Matching(string criteria);
+        
+        User Search(string name);
     }
 }
