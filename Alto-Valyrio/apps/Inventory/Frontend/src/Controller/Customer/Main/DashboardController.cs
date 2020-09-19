@@ -11,7 +11,21 @@ namespace Alto_Valyrio.apps.Inventory.Frontend.src.Controller.Customer.Main
     {
         public Form Show()
         {
-            var dashboard = new Dashboard();
+            var routes = Routes.GetRoutes();
+
+            var menuItems = new Dictionary<string, IController>
+            {
+                { "Add a register", (IController)routes["CreateProduct"] },
+                { "Consult a register", (IController)routes["CreateProduct"] },
+                { "Move a register", (IController)routes["CreateProduct"] },
+            };
+
+            var data = new Dictionary<string, object>
+            {
+                { "menuItems", menuItems }
+            };
+
+            var dashboard = new Dashboard(data);
             return dashboard;
         }
     }
